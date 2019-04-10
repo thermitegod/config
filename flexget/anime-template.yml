@@ -1,0 +1,8 @@
+#how to setup anime.yml
+series:
+  - show 1:
+      from_group:
+        - group name
+  - show 2:
+      from_group:
+        - group name

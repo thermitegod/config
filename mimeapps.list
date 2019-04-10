@@ -1,0 +1,24 @@
+[Default Applications]
+application/zip=mcomix-usercreated-0.desktop;
+application/vnd.rar=mcomix-usercreated-1.desktop;
+application/pdf=mcomix.desktop;
+image/png=qiv-usercreated-1.desktop;
+image/jpeg=qiv-usercreated-0.desktop;
+application/octet-stream=xarchiver;
+text/html=google-chrome-unstable.desktop
+x-scheme-handler/http=google-chrome-unstable.desktop
+x-scheme-handler/https=google-chrome-unstable.desktop
+x-scheme-handler/about=google-chrome-unstable.desktop
+x-scheme-handler/unknown=google-chrome-unstable.desktop
+image/gif=mpv-usercreated-2.desktop;
+application/x-7z-compressed=mcomix-usercreated-2.desktop;
+
+[Added Associations]
+application/zip=mcomix-usercreated-0.desktop;
+application/vnd.rar=mcomix-usercreated-1.desktop;
+application/pdf=mcomix.desktop;
+image/png=qiv-usercreated-1.desktop;
+image/jpeg=qiv-usercreated-0.desktop;
+application/octet-stream=xarchiver;
+image/gif=mpv-usercreated-2.desktop;
+application/x-7z-compressed=mcomix-usercreated-2.desktop;
