@@ -10,80 +10,41 @@ series:
   - Fairy Tail Final Season:
       from_group:
         - horriblesubs
-  - Sword Art Online:
-      from_group:
-        - horriblesubs
-  - Toaru Majutsu no Index III:
-      from_group:
-        - horriblesubs
 
-#winter 2019
-  - 3D Kanojo:
-      from_group:
-        - horriblesubs
-  - Go-toubun no Hanayome:
-      from_group:
-        - horriblesubs
+#slow
   - Circlet Princess:
       from_group:
-        - horriblesubs
-  - Date A Live:
-      from_group:
-        - horriblesubs
-  - Domestic na Kanojo:
-      from_group:
-        - horriblesubs
-  - Grimms Notes:
-      from_group:
-        - horriblesubs
-  - Kakegurui:
-      from_group:
-        - horriblesubs
-  - Kemurikusa:
-      from_group:
-        - horriblesubs
-  - Kouya no Kotobuki Hikoutai:
-      from_group:
-        - horriblesubs
-  - Mahou Shoujo Tokushusen Asuka:
-      from_group:
-        - horriblesubs
-  - Yakusoku no Neverland:
-      from_group:
-        - horriblesubs
-  - Manaria Friends:
-      from_group:
-        - horriblesubs
+        - RyuujiTK
 
-#sprint2019
-  - Shingeki no Kyojin:
+#sprint2019 other
+  - Gunjou no Magmel:
       from_group:
-        - horriblesubs
-  - One Punch Man:
+        - Non Nobis Translate
+        - Linguistic
+  - Aikatsu Friends:
+      from_group:
+        - Mezashite
+
+#sprint2019 hs
+  - Shingeki no Kyojin:
       from_group:
         - horriblesubs
   - Kimetsu no Yaiba:
       from_group:
         - horriblesubs
-  - Carole:
-      from_group:
-        - horriblesubs
   - Kenja no Mago:
       from_group:
         - horriblesubs
-  - Boku-tachi wa Benkyou ga Dekinai:
+  - Bokutachi wa Benkyou ga Dekinai:
       from_group:
         - horriblesubs
   - Fairy Gone:
       from_group:
         - horriblesubs
-  - Gunjou no Magmel:
-      from_group:
-        - horriblesubs
   - Shoumetsu Toshi:
       from_group:
         - horriblesubs
-  - Konoyo no Hate de Koi o Utau Shoujo YU-NO:
+  - Kono Yo no Hate de Koi wo Utau Shoujo YU-NO:
       from_group:
         - horriblesubs
   - Mayonaka no Occult Koumuin:
@@ -92,19 +53,7 @@ series:
   - RobiHachi:
       from_group:
         - horriblesubs
-  - Hangyaku-sei Million Arthur:
-      from_group:
-        - horriblesubs
-  - Hachigatsu no Cinderella Nine:
-      from_group:
-        - horriblesubs
-  - BAKUMATSU:
-      from_group:
-        - horriblesubs
   - Kidou Senshi Gundam:
-      from_group:
-        - horriblesubs
-  - Aikatsu Friends:
       from_group:
         - horriblesubs
   - Nande Koko ni Sensei ga:

@@ -97,6 +97,10 @@
 (session-info "toplevel"
     (factory-entry "gimp-operation-tool-dialog")
     (position 578 254))
+(session-info "toplevel"
+    (factory-entry "gimp-preferences-dialog")
+    (position 1367 649)
+    (size 1133 769))
 
 (hide-docks no)
 (single-window-mode yes)
