@@ -30,7 +30,6 @@ alias ffplay="ffplay -hide_banner"
 alias alsamixer="alsamixer -c 1"
 alias bc="bc -q"
 alias su="doas su"
-alias sudo="doas"
 alias lxd="LD_LIBRARY_PATH=/usr/lib/lxd lxd"
 alias calcurse="calcurse --directory ${HOME}/.config/calcurse"
 

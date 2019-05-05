@@ -1,10 +1,9 @@
 #ln -s /etc/gtk-2.0/gtkrc /home/brandon/.config/gtk-2.0/gtkrc-2.0
-include "/home/brandon/.gtkrc-2.0.mine"
+
 gtk-theme-name="Adwaita-dark"
 gtk-icon-theme-name="Arc"
 gtk-font-name="Liberation Mono 10"
 gtk-cursor-theme-name="OpenZone_Ice_Slim"
 #gtk-cursor-theme-name="OpenZone_Black_Slim"
-#prevent ~/.local/share/recently-used.xbel
 gtk-recent-files-max-age=0
 gtk-print-preview-command="/usr/bin/evince"

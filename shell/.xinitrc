@@ -14,7 +14,9 @@ xset s off &
 xset -dpms &
 
 #/usr/bin/compton -C --no-fading-openclose -G --shadow-ignore-shaped --backend glx --paint-on-overlay --vsync opengl-swc &
-/usr/bin/compton -C --no-fading-openclose -G --shadow-ignore-shaped --paint-on-overlay &
+
+#current
+#/usr/bin/compton -C --no-fading-openclose -G --shadow-ignore-shaped --paint-on-overlay &
 
 exec i3
 

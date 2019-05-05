@@ -119,9 +119,11 @@ bindsym --release $mod+mod1+a exec --no-startup-id /usr/local/bin/mpv-link
 bindsym --release Pause exec --no-startup-id /usr/local/bin/desktop-pause -a
 bindsym --release $mod+F9 exec --no-startup-id /usr/local/bin/mpc-play-pause
 #bindsym --release $mod+F10 exec --no-startup-id /usr/local/bin/mpc-play-pause
-bindsym --release $mod+F10 exec --no-startup-id mpc -h /tmp/mpd.socket random
-bindsym --release $mod+F11 exec --no-startup-id mpc -h /tmp/mpd.socket prev
-bindsym --release $mod+F12 exec --no-startup-id mpc -h /tmp/mpd.socket next
+bindsym --release $mod+F10 exec --no-startup-id mpc random
+bindsym --release $mod+F11 exec --no-startup-id mpc prev
+bindsym --release $mod+F12 exec --no-startup-id mpc next
+#bindsym --release $mod+F11 exec --no-startup-id mpc -h /rum/mpd.socket prev
+#bindsym --release $mod+F12 exec --no-startup-id mpc -h /run/mpd.socket next
 #bindsym --release $mod+mod1+ exec --no-startup-id
 #bindsym --release $mod+mod1+ exec --no-startup-id
 #bindsym --release $mod+mod1+ exec --no-startup-id
@@ -177,3 +179,4 @@ for_window [class="Virt-manager"], floating enable, move container to workspace 
 exec --no-startup-id i3-msg "workspace 02; exec spacefm"
 exec --no-startup-id i3-msg "workspace 03; exec filezilla; exec terminator -e ncmpcpp"
 exec --no-startup-id i3-msg "workspace 04; exec terminator --layout=tag4 --profile=tag4"
+
