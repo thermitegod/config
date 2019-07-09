@@ -76,6 +76,6 @@ if [ -n "$SSH_CLIENT" ];then
 fi
 
 #functions
-spell(){ echo "$@" | aspell -a | sed '1d;$d'; }
+spell(){ echo "$@"|aspell -a|sed '1d;$d'; }
 mkcd(){ mkdir -p "${1}";cd "${1}"; }
 

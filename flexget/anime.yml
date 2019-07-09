@@ -11,49 +11,87 @@ series:
       from_group:
         - horriblesubs
 
-#slow
-  - Circlet Princess:
-      from_group:
-        - RyuujiTK
-
 #sprint2019 other
   - Gunjou no Magmel:
       from_group:
         - Non Nobis Translate
         - Linguistic
-  - Aikatsu Friends:
-      from_group:
-        - Mezashite
 
 #sprint2019 hs
-  - Shingeki no Kyojin:
-      from_group:
-        - horriblesubs
-  - Kimetsu no Yaiba:
-      from_group:
-        - horriblesubs
-  - Kenja no Mago:
-      from_group:
-        - horriblesubs
-  - Fairy Gone:
-      from_group:
-        - horriblesubs
-  - Shoumetsu Toshi:
-      from_group:
-        - horriblesubs
   - Kono Yo no Hate de Koi wo Utau Shoujo YU-NO:
-      from_group:
-        - horriblesubs
-  - RobiHachi:
       from_group:
         - horriblesubs
   - Kidou Senshi Gundam:
       from_group:
         - horriblesubs
-  - Nande Koko ni Sensei ga:
-      from_group:
-        - horriblesubs
-  - Dororo:
-      from_group:
-        - horriblesubs
 
+#2019 summer
+  - Dungeon ni Deai wo Motomeru no wa Machigatteiru:
+      from_group:
+        - horriblesubs
+  - Dr STONE:
+      from_group:
+        - horriblesubs
+  - Arifureta Shokugyou de Sekai Saikyou:
+      from_group:
+        - horriblesubs
+  - Vinland Saga:
+      from_group:
+        - horriblesubs
+  - Toaru Kagaku no Accelerator:
+      from_group:
+        - horriblesubs
+  - Lord El-Melloi II-sei no Jikenbo:
+      from_group:
+        - horriblesubs
+  - Isekai Cheat Magician:
+      from_group:
+        - horriblesubs
+  - Tsuujou Kougeki ga Zentai:
+      from_group:
+        - horriblesubs
+  - Maou-sama:
+      from_group:
+        - horriblesubs
+  - Kanata no Astra:
+      from_group:
+        - horriblesubs
+  - Dumbbell Nan Kilo Moteru:
+      from_group:
+        - horriblesubs
+  - Araburu Kisetsu no Otome-domo yo:
+      from_group:
+        - horriblesubs
+  - Jikkyouchuu:
+      from_group:
+        - horriblesubs
+  - Uchi no Ko no Tame Naraba:
+      from_group:
+        - horriblesubs
+  - BEM:
+      from_group:
+        - horriblesubs
+  - Cop Craft:
+      from_group:
+        - horriblesubs
+  - Senki Zesshou Symphogear XV:
+      from_group:
+        - horriblesubs
+  - Katsute Kami Datta Kemono-tachi e:
+      from_group:
+        - horriblesubs
+  - Granbelm:
+      from_group:
+        - horriblesubs
+  - Machikado Mazoku:
+      from_group:
+        - horriblesubs
+  - Tejina Senpai:
+      from_group:
+        - horriblesubs
+  - Sounan desu ka:
+      from_group:
+        - horriblesubs
+  - SD Gundam World Sangoku Soketsuden:
+      from_group:
+        - horriblesubs

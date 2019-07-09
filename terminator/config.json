@@ -8,11 +8,7 @@
         "custom_url_handler":"",
         "dbus":true,
         "disable_real_transparency":false,
-        "enabled_plugins":[
-            "LaunchpadBugURLHandler",
-            "LaunchpadCodeURLHandler",
-            "APTURLHandler"
-        ],
+        "enabled_plugins":[],
         "extra_styling":false,
         "focus":"mouse",
         "geometry_hinting":false,
