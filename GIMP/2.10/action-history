@@ -1,12 +1,12 @@
 # GIMP action-history
 
-(history-item "file-quit" 1)
+(history-item "file-quit" 5)
 (history-item "edit-paste" 4)
-(history-item "image-new" 1)
-(history-item "edit-cut" 1)
-(history-item "file-open" 0)
-(history-item "edit-copy" 0)
-(history-item "file-export-as" 3)
+(history-item "image-new" 0)
+(history-item "file-open" 1)
+(history-item "edit-cut" 0)
+(history-item "file-export-as" 1)
+(history-item "edit-copy" 3)
 (history-item "file-save-as" 2)
 (history-item "tools-opacity-decrease" 0)
 (history-item "file-open-as-layers" 1)

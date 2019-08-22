@@ -2,15 +2,17 @@
 # Mod4 = Super
 # Mod1 = Alt
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles and i3 bar
 font pango:Liberation Mono 10
 
 # drag floating windows
-floating_modifier mod1
+floating_modifier $alt
 
 # kill focused window
 bindsym $mod+c kill
+bindsym $alt+F4 kill
 
 # change focus
 bindsym $mod+Left focus left
@@ -19,10 +21,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window:
-bindsym $mod+mod1+Left move left
-bindsym $mod+mod1+Down move down
-bindsym $mod+mod1+Up move up
-bindsym $mod+mod1+Right move right
+bindsym $mod+$alt+Left move left
+bindsym $mod+$alt+Down move down
+bindsym $mod+$alt+Up move up
+bindsym $mod+$alt+Right move right
 
 # h = vertical ; v = horizontal
 # split horizontal, vertical, toggle
@@ -35,10 +37,12 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling, floating
-bindsym $mod+mod1+space floating toggle
+bindsym $mod+$alt+space floating toggle
 
 # switch to workspace
-#bindsym mod1+2 workspace 2: manga
+#bindsym $mod+$alt+Right workspace next
+#bindsym $mod+$alt+Left workspace prev
+#bindsym $alt+2 workspace 2: manga
 bindsym $mod+1 workspace 01
 bindsym $mod+2 workspace 02
 bindsym $mod+3 workspace 03
@@ -61,33 +65,33 @@ bindsym $mod+Control+9 workspace 19
 bindsym $mod+Control+0 workspace 20
 
 # move focused container to workspace
-bindsym $mod+mod1+1 move container to workspace 01
-bindsym $mod+mod1+2 move container to workspace 02
-bindsym $mod+mod1+3 move container to workspace 03
-bindsym $mod+mod1+4 move container to workspace 04
-bindsym $mod+mod1+5 move container to workspace 05
-bindsym $mod+mod1+6 move container to workspace 06
-bindsym $mod+mod1+7 move container to workspace 07
-bindsym $mod+mod1+8 move container to workspace 08
-bindsym $mod+mod1+9 move container to workspace 09
-bindsym $mod+mod1+0 move container to workspace 10
-bindsym $mod+Control+mod1+1 move container to workspace 11
-bindsym $mod+Control+mod1+2 move container to workspace 12
-bindsym $mod+Control+mod1+3 move container to workspace 13
-bindsym $mod+Control+mod1+4 move container to workspace 14
-bindsym $mod+Control+mod1+5 move container to workspace 15
-bindsym $mod+Control+mod1+6 move container to workspace 16
-bindsym $mod+Control+mod1+7 move container to workspace 17
-bindsym $mod+Control+mod1+8 move container to workspace 18
-bindsym $mod+Control+mod1+9 move container to workspace 19
-bindsym $mod+Control+mod1+0 move container to workspace 20
+bindsym $mod+$alt+1 move container to workspace 01
+bindsym $mod+$alt+2 move container to workspace 02
+bindsym $mod+$alt+3 move container to workspace 03
+bindsym $mod+$alt+4 move container to workspace 04
+bindsym $mod+$alt+5 move container to workspace 05
+bindsym $mod+$alt+6 move container to workspace 06
+bindsym $mod+$alt+7 move container to workspace 07
+bindsym $mod+$alt+8 move container to workspace 08
+bindsym $mod+$alt+9 move container to workspace 09
+bindsym $mod+$alt+0 move container to workspace 10
+bindsym $mod+Control+$alt+1 move container to workspace 11
+bindsym $mod+Control+$alt+2 move container to workspace 12
+bindsym $mod+Control+$alt+3 move container to workspace 13
+bindsym $mod+Control+$alt+4 move container to workspace 14
+bindsym $mod+Control+$alt+5 move container to workspace 15
+bindsym $mod+Control+$alt+6 move container to workspace 16
+bindsym $mod+Control+$alt+7 move container to workspace 17
+bindsym $mod+Control+$alt+8 move container to workspace 18
+bindsym $mod+Control+$alt+9 move container to workspace 19
+bindsym $mod+Control+$alt+0 move container to workspace 20
 
 # reload configuration file, restart inplace
-bindsym $mod+mod1+c reload
-bindsym $mod+mod1+r restart
+bindsym $mod+$alt+c reload
+bindsym $mod+$alt+r restart
 
 # exit i3
-#bindsym $mod+mod1+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+$alt+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window keyboard
 mode "resize" {
@@ -110,38 +114,31 @@ bar {
 # user
 # keyboard stuff
 bindsym $mod+d exec --no-startup-id rofi -show run
-#bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Liberation Mono 10' -i -nf '#ffffff' -sf '#ffffff' -sb '#c80003' -nb '#1b1b1b'
+#bindsym $mod+n exec --no-startup-id terminator -e ncmpcpp
+#bindsym $mod+b exec --no-startup-id terminator -e calcurse --directory ~/.config/calcurse
+
 bindsym --release Print exec --no-startup-id /usr/local/bin/snip
 bindsym --release $mod+Print exec --no-startup-id /usr/local/bin/snip-root
-bindsym --release $mod+Return exec terminator
-bindsym --release $mod+mod1+Return exec terminator --layout=tag4 --profile=tag4
-bindsym --release $mod+mod1+a exec --no-startup-id /usr/local/bin/mpv-link
-bindsym --release Pause exec --no-startup-id /usr/local/bin/desktop-pause -a
-bindsym --release $mod+F9 exec --no-startup-id /usr/local/bin/mpc-play-pause
-#bindsym --release $mod+F10 exec --no-startup-id /usr/local/bin/mpc-play-pause
-bindsym --release $mod+F10 exec --no-startup-id mpc random
-bindsym --release $mod+F11 exec --no-startup-id mpc prev
-bindsym --release $mod+F12 exec --no-startup-id mpc next
-#bindsym --release $mod+F11 exec --no-startup-id mpc -h /rum/mpd.socket prev
-#bindsym --release $mod+F12 exec --no-startup-id mpc -h /run/mpd.socket next
-#bindsym --release $mod+mod1+ exec --no-startup-id
-#bindsym --release $mod+mod1+ exec --no-startup-id
-#bindsym --release $mod+mod1+ exec --no-startup-id
-
-#thinkpad
-#bindsym --release $mod+o exec --no-startup-id xbacklight -dec 10
-#bindsym --release $mod+p exec --no-startup-id xbacklight -inc 10
+bindsym $mod+Return exec terminator
+bindsym $mod+$alt+Return exec terminator --layout=tag4 --profile=tag4
+bindsym $mod+$alt+a exec --no-startup-id /usr/local/bin/mpv-link
+bindsym Pause exec --no-startup-id /usr/local/bin/desktop-pause -a
+bindsym $mod+F9 exec --no-startup-id mpc toggle
+bindsym $mod+F10 exec --no-startup-id mpc random
+bindsym $mod+F11 exec --no-startup-id mpc prev
+bindsym $mod+F12 exec --no-startup-id mpc next
+#bindsym $mod+$alt+ exec --no-startup-id
+#bindsym $mod+$alt+ exec --no-startup-id
 
 # use $xprop to get window information
 # auto enable floating mode
-#for_window [title="gifview"] floating enable
 for_window [title="qiv"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Sxiv"] floating enable
 for_window [class="gifview"] floating enable
 for_window [class="mkvtoolnix-gui"] floating enable
-for_window [class="Firefox"] floating enable
+#for_window [class="Firefox"] floating enable
 for_window [class="Tor Browser"] floating enable
 for_window [class="Fslint-gui"] floating enable
 for_window [class="transmission"] floating enable
@@ -158,6 +155,11 @@ for_window [class="cr3"] floating enable
 
 # random shit
 for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Prefrences"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_role="menu"] floating enable
+#for_window [window_role=""] floating enable
 for_window [class="^.*"] border pixel 0
 for_window [title="^.*"] border pixel 0
 popup_during_fullscreen smart
@@ -169,14 +171,15 @@ assign [class="Filezilla"] 03
 assign [class="Firefox"] 05
 
 #set workspace and switch to it
-for_window [class="MComix"], move container to workspace 06, workspace 06
-for_window [class="Gimp"], move container to workspace 07, workspace 07
-for_window [class="Virt-manager"], floating enable, move container to workspace 20, workspace 20
+for_window [class="MComix"] move container to workspace 06, workspace 06
+for_window [class="Gimp"] move container to workspace 07, workspace 07
+for_window [class="Virt-manager"] floating enable, move container to workspace 20, workspace 20
 #for_window [class=""], move container to workspace , workspace , focus
 
 # autostart
 #dont need to have workspace call in all, keeping anyway
 exec --no-startup-id i3-msg "workspace 02; exec spacefm"
-exec --no-startup-id i3-msg "workspace 03; exec filezilla; exec terminator -e ncmpcpp"
+#exec --no-startup-id i3-msg "workspace 03; exec filezilla; exec terminator -e ncmpcpp"
+exec --no-startup-id i3-msg "workspace 03; exec terminator -e ncmpcpp; exec terminator -e calcurse --directory ~/.config/calcurse"
 exec --no-startup-id i3-msg "workspace 04; exec terminator --layout=tag4 --profile=tag4"
 

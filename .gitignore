@@ -17,7 +17,8 @@ newsboat
 nvim/plugged/*
 rtorrent/session/*
 rtorrent/rpc.socket
-spacefm/session*
+spacefm/session
+spacefm/session-old
 startpage
 transmission
 vnstat

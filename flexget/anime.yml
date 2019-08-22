@@ -26,9 +26,6 @@ series:
         - horriblesubs
 
 #2019 summer
-  - Dungeon ni Deai wo Motomeru no wa Machigatteiru:
-      from_group:
-        - horriblesubs
   - Dr STONE:
       from_group:
         - horriblesubs
@@ -44,13 +41,7 @@ series:
   - Lord El-Melloi II-sei no Jikenbo:
       from_group:
         - horriblesubs
-  - Isekai Cheat Magician:
-      from_group:
-        - horriblesubs
   - Tsuujou Kougeki ga Zentai:
-      from_group:
-        - horriblesubs
-  - Maou-sama:
       from_group:
         - horriblesubs
   - Kanata no Astra:
@@ -65,19 +56,10 @@ series:
   - Jikkyouchuu:
       from_group:
         - horriblesubs
-  - Uchi no Ko no Tame Naraba:
-      from_group:
-        - horriblesubs
-  - BEM:
-      from_group:
-        - horriblesubs
   - Cop Craft:
       from_group:
         - horriblesubs
-  - Senki Zesshou Symphogear XV:
-      from_group:
-        - horriblesubs
-  - Katsute Kami Datta Kemono-tachi e:
+  - Symphogear XV:
       from_group:
         - horriblesubs
   - Granbelm:
@@ -93,5 +75,14 @@ series:
       from_group:
         - horriblesubs
   - SD Gundam World Sangoku Soketsuden:
+      from_group:
+        - horriblesubs
+  - Okaa-san Online:
+      from_group:
+        - horriblesubs
+  - DanMachi S2:
+      from_group:
+        - horriblesubs
+  - Lord El-Melloi II Case Files:
       from_group:
         - horriblesubs

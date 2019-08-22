@@ -58,6 +58,7 @@ alias auditlog="doas tail -f /var/log/audit/audit.log"
 alias del="printf 'COMMAND     PID       USER   FD   TYPE DEVICE  SIZE/OFF   NODE NAME\n';doas lsof /|\egrep --color=auto 'DEL|deleted'"
 alias delc="doas lsof /|\egrep 'DEL|deleted'|wc -l"
 alias todo="grep --color=auto --ignore-case todo *"
+alias ncdu="ncdu -x -rr"
 
 #other
 #alias neofetch="neofetch --backend w3m --source ${HOME}/images/face/082.jpg"
