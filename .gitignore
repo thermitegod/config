@@ -14,11 +14,12 @@ mpd/*.sql
 mpd/state
 mpv/watch_later/*
 newsboat
+nvim/autoload/plug.vim.old
 nvim/plugged/*
 rtorrent/session/*
 rtorrent/rpc.socket
+spacefm/.git
 spacefm/session
-spacefm/session-old
 startpage
 transmission
 vnstat

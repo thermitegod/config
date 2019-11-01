@@ -147,6 +147,8 @@ for_window [class="Xarchiver"] floating enable
 for_window [class="Grabber"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="cr3"] floating enable
+for_window [class="java-lang-Thread"] floating enable
+for_window [class="Glade"] floating enable
 #for_window [class=""] floating enable
 #for_window [class=""] floating enable
 
@@ -169,6 +171,8 @@ popup_during_fullscreen smart
 assign [class="Spacefm"] 02
 assign [class="Filezilla"] 03
 assign [class="Firefox"] 05
+
+#assign [class="MComix"] 06
 
 #set workspace and switch to it
 for_window [class="MComix"] move container to workspace 06, workspace 06

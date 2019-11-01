@@ -1,5 +1,5 @@
 [Default Applications]
-application/zip=mcomix-usercreated-0.desktop;
+application/zip=mcomix;mcomix-usercreated-0.desktop;
 application/vnd.rar=mcomix-usercreated-1.desktop;
 application/pdf=mcomix.desktop;
 image/png=qiv-usercreated-1.desktop;
@@ -13,9 +13,11 @@ x-scheme-handler/unknown=google-chrome-unstable.desktop
 image/gif=mpv-usercreated-2.desktop;
 application/x-7z-compressed=mcomix-usercreated-2.desktop;
 application/vnd.comicbook+zip=mcomix.desktop;
+text/plain=mpv-usercreated-0.desktop;
+inode/directory=spacefm-folder-handler.desktop;
 
 [Added Associations]
-application/zip=mcomix-usercreated-0.desktop;
+application/zip=mcomix;mcomix-usercreated-0.desktop;
 application/vnd.rar=mcomix-usercreated-1.desktop;
 application/pdf=mcomix.desktop;
 image/png=qiv-usercreated-1.desktop;
@@ -24,3 +26,5 @@ application/octet-stream=xarchiver;
 image/gif=mpv-usercreated-2.desktop;
 application/x-7z-compressed=mcomix-usercreated-2.desktop;
 application/vnd.comicbook+zip=mcomix.desktop;
+text/plain=mpv-usercreated-0.desktop;
+inode/directory=spacefm-folder-handler.desktop;

@@ -11,78 +11,57 @@ series:
       from_group:
         - horriblesubs
 
-#sprint2019 other
-  - Gunjou no Magmel:
-      from_group:
-        - Non Nobis Translate
-        - Linguistic
-
-#sprint2019 hs
-  - Kono Yo no Hate de Koi wo Utau Shoujo YU-NO:
-      from_group:
-        - horriblesubs
-  - Kidou Senshi Gundam:
-      from_group:
-        - horriblesubs
-
-#2019 summer
+#2019 summer 24ep
   - Dr STONE:
-      from_group:
-        - horriblesubs
-  - Arifureta Shokugyou de Sekai Saikyou:
       from_group:
         - horriblesubs
   - Vinland Saga:
       from_group:
         - horriblesubs
-  - Toaru Kagaku no Accelerator:
+
+#2019 winter 12ep
+  - Sword Art Online:
       from_group:
         - horriblesubs
-  - Lord El-Melloi II-sei no Jikenbo:
+  - PSYCHO-PASS:
       from_group:
         - horriblesubs
-  - Tsuujou Kougeki ga Zentai:
+  - Assassins Pride:
       from_group:
         - horriblesubs
-  - Kanata no Astra:
+  - Shinchou Yuusha:
       from_group:
         - horriblesubs
-  - Dumbbell Nan Kilo Moteru:
+  - Fate Grand Order:
       from_group:
         - horriblesubs
-  - Araburu Kisetsu no Otome-domo yo:
+  - Hataage! Kemono Michi:
       from_group:
         - horriblesubs
-  - Jikkyouchuu:
+  - Babylon:
       from_group:
         - horriblesubs
-  - Cop Craft:
+  - Watashi Nouryoku wa Heikinchi de tte Itta yo ne:
       from_group:
         - horriblesubs
-  - Symphogear XV:
+  - Radiant:
       from_group:
         - horriblesubs
-  - Granbelm:
+  - Val x Love:
       from_group:
         - horriblesubs
-  - Machikado Mazoku:
+  - Keishicho:
+      from_group:
+        - Erai-raws
+  - Chuubyou Gekihatsu Boy:
       from_group:
         - horriblesubs
-  - Tejina Senpai:
+  - Kandagawa Jet Girls:
       from_group:
         - horriblesubs
-  - Sounan desu ka:
+  - Phantasy Star Online:
       from_group:
         - horriblesubs
-  - SD Gundam World Sangoku Soketsuden:
-      from_group:
-        - horriblesubs
-  - Okaa-san Online:
-      from_group:
-        - horriblesubs
-  - DanMachi S2:
-      from_group:
-        - horriblesubs
-  - Lord El-Melloi II Case Files:
+  - Code Reunion:
       from_group:
         - horriblesubs

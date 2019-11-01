@@ -73,9 +73,6 @@ nnoremap : ;
 "dont act as vi
 set nocompatible
 
-"nano like exit, only keeping for memories
-"map <C-x> :wq!<cr>
-
 "general
 set number
 set lazyredraw
@@ -87,8 +84,8 @@ set history=1000
 set autoread
 set nomodeline
 
-"use sudo to save
-command W w !sudo tee % > /dev/null
+"use doas to save
+command W w !doas tee % > /dev/null
 
 "serch in subdirs
 set path+=**
@@ -151,10 +148,6 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove<cr>
-
-"run emerge *.ebuild digest
-"WIP
-"autocmd BufWritePost *.ebuild
 
 "show over 80 col
 "highlight ColorColumn ctermbg=magenta

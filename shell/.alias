@@ -20,6 +20,7 @@ alias ntpcheck="ntpctl -s all"
 
 #toolchain
 alias make="nice -19 make -j$(($(nproc)+1)) -l$(($(nproc)+1))"
+alias kmake="make LD=ld.bfd" #fix vdso undef when using gold
 alias gdb="gdb -q"
 alias strip="strip -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag"
 
@@ -41,9 +42,9 @@ alias df="df -hTP"
 alias du="du -k --one-file-system --total"
 alias mountt="mount|column -t"
 alias grep="grep --color=auto --ignore-case"
-alias egrep="egrep --color=auto --ignore-case"
-alias fgrep="fgrep --color=auto --ignore-case"
-alias pcregrep="pcregrep --color=auto --ignore-case"
+alias egrep="grep -E"
+alias fgrep="grep -F"
+alias pcregrep="grep -P"
 alias gtop="radeontop"
 alias mime-type="file -b --mime-type"
 alias mime-encode="file -b --mime-encoding"
@@ -55,8 +56,8 @@ alias cdiff="colordiff"
 alias time='/usr/bin/time -f "\nTIME\t%E\nCPU\t%P\nRAM\t%Mk"'
 alias ktime='/usr/bin/time -f "\nTIME\t%E\nUSER\t%U\nKERN\t%S\nCPU\t%P\nRAM\t%Mk"'
 alias auditlog="doas tail -f /var/log/audit/audit.log"
-alias del="printf 'COMMAND     PID       USER   FD   TYPE DEVICE  SIZE/OFF   NODE NAME\n';doas lsof /|\egrep --color=auto 'DEL|deleted'"
-alias delc="doas lsof /|\egrep 'DEL|deleted'|wc -l"
+alias del="printf 'COMMAND     PID       USER   FD   TYPE DEVICE  SIZE/OFF   NODE NAME\n';doas lsof /|\grep -E --color=auto 'DEL|deleted'"
+alias delc="doas lsof /|\grep -E 'DEL|deleted'|wc -l"
 alias todo="grep --color=auto --ignore-case todo *"
 alias ncdu="ncdu -x -rr"
 
@@ -98,6 +99,7 @@ alias eqy="equery y"
 alias eqs="equery s"
 alias eqss="equery s --bytes"
 alias eqw="equery w"
+alias etcat="equery l -o -p"
 
 #openrc
 alias rc-status="rc-status -a"

@@ -1,17 +1,27 @@
-export PATH=${HOME}/.local/bin:${PATH}
+#shells
+#ZDOTDIR="${HOME}/.config/shell"
+export BASHRC_CONFIG_DIR="${HOME}/.config/shell"
 
+#path
+export PATH=${PATH}:${HOME}/.local/bin
+
+#gentoo
 export EIX_LIMIT="0"
-export MPD_HOST="/run/mpd.socket"
-export QT_STYLE_OVERRIDE="adwaita-dark"
-export VDPAU_DRIVER="radeonsi"
 
+#gui
+export GTK2_RC_FILES="${HOME}/.config/gtk-2.0/gtkrc-2.0"
+export QT_STYLE_OVERRIDE="adwaita-dark"
+
+#gpg
 export GNUPGHOME="~/.config/gnupg"
 export GPG_TTY="$(tty)"
 
+#python
 export PYTHONOPTIMIZE="2"
 #export PYTHONOPTIMIZE="0"
 export PYTHONUTF8="1"
 
+#defaults
 export EDITOR="/usr/bin/nvim"
 export LESSHISTFILE="/dev/null"
 export LESS="-i -Q -S -Sm -F -R -M --shift 5"
@@ -21,6 +31,12 @@ export PAGER="/usr/bin/less"
 export USE_EDITOR="${EDITOR}"
 export VISUAL="${EDITOR}"
 
+#other
+export MPD_HOST="/run/mpd.socket"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/config"
+export VDPAU_DRIVER="radeonsi"
+
+#xdg
 export XDG_CACHE_HOME="/tmp/${USER}/cache"
 export XDG_RUNTIME_DIR="/tmp/${USER}"
 export XDG_DATA_HOME="${HOME}/.local/share"
@@ -36,22 +52,14 @@ export XDG_VIDEOS_DIR="$HOME/"
 export XDG_TEMPLATES_DIR="$HOME/"
 export XDG_PUBLICSHARE_DIR="$HOME/"
 
-export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/config"
+#LLVM="9"
+#export CC="/usr/lib/llvm/${LLVM}/bin/clang-${LLVM}"
+#export CXX="/usr/lib/llvm/${LLVM}/bin/clang++-${LLVM} -stdlib=libc++"
+#export CPP="/usr/lib/llvm/${LLVM}/bin/clang-cpp"
+#export AR="/usr/lib/llvm/${LLVM}/bin/llvm-ar"
+#export NM="/usr/lib/llvm/${LLVM}/bin/llvm-nm"
+#export RANLIB="/usr/lib/llvm/${LLVM}/bin/llvm-ranlib"
+#export LD="/usr/bin/ld.lld" #LLVM lld
 
-LLVM="8"
-CC="/usr/lib/llvm/${LLVM}/bin/clang-${LLVM}"
-CXX="/usr/lib/llvm/${LLVM}/bin/clang++-${LLVM} -stdlib=libc++"
-CPP="/usr/lib/llvm/${LLVM}/bin/clang-cpp"
-AR="/usr/lib/llvm/${LLVM}/bin/llvm-ar"
-NM="/usr/lib/llvm/${LLVM}/bin/llvm-nm"
-RANLIB="/usr/lib/llvm/${LLVM}/bin/llvm-ranlib"
-LD="/usr/bin/ld.lld" #LLVM lld
-
-CFLAGS="-pipe -O2 -mtune=znver1 -march=znver1 -fomit-frame-pointer -flto=thin -finline-functions"
-CXXFLAGS="$CFLAGS"
-FFLAGS="$CFLAGS"
-FCFLAGS="$CFLAGS"
-LDFLAGS="$CFLAGS -Wl,--as-needed -Wl,--discard-all -Wl,--hash-style=gnu"
-
-PS1="> "
+export PS1="> "
 
