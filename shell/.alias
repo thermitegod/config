@@ -20,7 +20,6 @@ alias ntpcheck="ntpctl -s all"
 
 #toolchain
 alias make="nice -19 make -j$(($(nproc)+1)) -l$(($(nproc)+1))"
-alias kmake="make LD=ld.bfd" #fix vdso undef when using gold
 alias gdb="gdb -q"
 alias strip="strip -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag"
 
@@ -75,8 +74,9 @@ alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset 
 alias glgpg="git log --show-signature -1"
 
 #kernel
-alias mcc="make menuconfig"
-alias msc="make syncconfig"
+alias kmake="make LD=ld.bfd" #fix vdso undef when using gold
+alias mcc="kmake menuconfig"
+alias msc="kmake syncconfig"
 
 #gentoo
 alias emerge="PYTHONOPTIMIZE=0 emerge"

@@ -20,6 +20,7 @@ rtorrent/session/*
 rtorrent/rpc.socket
 spacefm/.git
 spacefm/session
+spacefm/new
 startpage
 transmission
 vnstat

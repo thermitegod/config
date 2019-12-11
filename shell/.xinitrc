@@ -18,7 +18,7 @@ xset -dpms &
 #current
 #/usr/bin/compton -C --no-fading-openclose -G --shadow-ignore-shaped --paint-on-overlay &
 
-#exec i3
+exec i3
 
-exec ck-launch-session dbus-launch --sh-syntax --exit-with-session i3
+#exec ck-launch-session dbus-launch --sh-syntax --exit-with-session i3
 
