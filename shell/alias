@@ -12,16 +12,26 @@ alias mkdir="mkdir -pv"
 alias wget="wget --hsts-file=/tmp/wget-hsts"
 alias ports="netstat -tulanp"
 alias rss="newsboat"
-alias neomutt="neomutt -F ${HOME}/.config/mutt/muttrc"
-alias weechat="weechat -d ${HOME}/.config/weechat"
+alias neomutt="neomutt -F ${XDG_CONFIG_HOME}/mutt/muttrc"
+alias weechat="weechat -d ${XDG_CONFIG_HOME}/weechat"
 alias flexget="flexget --logfile=/dev/null"
 alias tb="nc termbin.com 9999"
 alias ntpcheck="ntpctl -s all"
 
+#ssh
+#alias ssh="ssh ${SSH_CONFIG} ${SSH_ID} ${SSH_KNOWN_HOSTS}"
+#alias ssh-copy-id="ssh-copy-id ${SSH_ID}"
+
 #toolchain
-alias make="nice -19 make -j$(($(nproc)+1)) -l$(($(nproc)+1))"
-alias gdb="gdb -q"
+#alias make="nice -19 make -j$(($(nproc)+1)) -l$(($(nproc)+1)) CC=${CC} LD=${LD}"
+alias make="nice -19 make -j$(($(nproc)*2+1)) -l$(($(nproc)+1))"
+alias gdb="gdb -nh -x ${XDG_CONFIG_HOME}/gdb/init"
 alias strip="strip -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag"
+
+#kernel
+alias kmake="make LD=ld.bfd" #fix vdso undef when using gold
+alias mcc="kmake menuconfig"
+alias msc="kmake syncconfig"
 
 #misc
 alias ffmpeg="ffmpeg -hide_banner"
@@ -31,7 +41,10 @@ alias alsamixer="alsamixer -c 1"
 alias bc="bc -q"
 alias su="doas su"
 alias lxd="LD_LIBRARY_PATH=/usr/lib/lxd lxd"
-alias calcurse="calcurse --directory ${HOME}/.config/calcurse"
+alias calcurse="calcurse --directory ${XDG_CONFIG_HOME}/calcurse"
+alias pylint="pylint --disable C0301 --disable C0330 --disable W0511 --disable C0116 --disable C0103 --disable C0115 --disable C0114"
+alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/config"
+alias reset="tput reset"
 
 #information
 alias dmesg="dmesg --kernel --color=always"
@@ -59,6 +72,7 @@ alias del="printf 'COMMAND     PID       USER   FD   TYPE DEVICE  SIZE/OFF   NOD
 alias delc="doas lsof /|\grep -E 'DEL|deleted'|wc -l"
 alias todo="grep --color=auto --ignore-case todo *"
 alias ncdu="ncdu -x -rr"
+alias uname="uname -a"
 
 #other
 #alias neofetch="neofetch --backend w3m --source ${HOME}/images/face/082.jpg"
@@ -72,11 +86,6 @@ alias gca="git commit --amend"
 alias grl="git reflog"
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches"
 alias glgpg="git log --show-signature -1"
-
-#kernel
-alias kmake="make LD=ld.bfd" #fix vdso undef when using gold
-alias mcc="kmake menuconfig"
-alias msc="kmake syncconfig"
 
 #gentoo
 alias emerge="PYTHONOPTIMIZE=0 emerge"

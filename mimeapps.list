@@ -1,5 +1,5 @@
 [Default Applications]
-application/zip=mcomix;mcomix-usercreated-0.desktop;
+application/zip=mcomix.desktop;mcomix;mcomix-usercreated-0.desktop;
 application/vnd.rar=mcomix-usercreated-1.desktop;
 application/pdf=mcomix.desktop;
 image/png=qiv-usercreated-1.desktop;
@@ -17,7 +17,7 @@ text/plain=mpv-usercreated-0.desktop;
 inode/directory=spacefm-folder-handler.desktop;
 
 [Added Associations]
-application/zip=mcomix;mcomix-usercreated-0.desktop;
+application/zip=mcomix.desktop;mcomix;mcomix-usercreated-0.desktop;
 application/vnd.rar=mcomix-usercreated-1.desktop;
 application/pdf=mcomix.desktop;
 image/png=qiv-usercreated-1.desktop;

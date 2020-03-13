@@ -13,12 +13,6 @@ defaultserverargs="-nolisten tcp"
 xset s off &
 xset -dpms &
 
-#/usr/bin/compton -C --no-fading-openclose -G --shadow-ignore-shaped --backend glx --paint-on-overlay --vsync opengl-swc &
-
-#current
-#/usr/bin/compton -C --no-fading-openclose -G --shadow-ignore-shaped --paint-on-overlay &
-
 exec i3
-
 #exec ck-launch-session dbus-launch --sh-syntax --exit-with-session i3
 

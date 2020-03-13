@@ -141,7 +141,7 @@ for_window [class="mkvtoolnix-gui"] floating enable
 #for_window [class="Firefox"] floating enable
 for_window [class="Tor Browser"] floating enable
 for_window [class="Fslint-gui"] floating enable
-for_window [class="transmission"] floating enable
+for_window [class="Transmission-gtk"] floating enable
 for_window [class="zim"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="Grabber"] floating enable
@@ -150,6 +150,8 @@ for_window [class="cr3"] floating enable
 for_window [class="Glade"] floating enable
 #for_window [class="java-lang-Thread"] floating enable
 for_window [class="jetbrains-pycharm-ce"] floating enable
+for_window [class="jetbrains-clion"] floating enable
+
 #for_window [name="win0"] floating enable
 #for_window [class=""] floating enable
 #for_window [class=""] floating enable

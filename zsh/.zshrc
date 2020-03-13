@@ -1,6 +1,6 @@
 emulate sh -c "source /etc/profile"
-emulate sh -c "source ${HOME}/.profile"
-emulate sh -c "source ${HOME}/.alias"
+emulate sh -c "source ${XDG_CONFIG_HOME}/shell/profile"
+emulate sh -c "source ${XDG_CONFIG_HOME}/shell/alias"
 source /usr/share/zsh/site-contrib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 #zsh specific
@@ -13,7 +13,7 @@ zstyle ":completion:*" glob 1
 zstyle ":completion:*" list-colors ""
 zstyle ":completion:*" max-errors 5 numeric
 zstyle ":completion:*" substitute 1
-zstyle ":compinstall" filename "${HOME}/.zshrc"
+zstyle ":compinstall" filename "${XDG_CONFIG_HOME}/zsh/.zshrc"
 zstyle ":completion:*:descriptions" format "%U%B%d%b%u"
 zstyle ":completion:*:warnings" format "%BNo matches for: %d%b"
 zstyle ":completion:*" menu select
@@ -53,13 +53,14 @@ setopt AUTO_CONTINUE NOTIFY
 bindkey -v
 
 autoload -Uz compinit promptinit
-compinit
+compinit -d "${ZDOTDIR}/zcompdump"
 #compinit -D # -u -C
-promptinit; prompt gentoo
+promptinit
+prompt gentoo
 
 HISTSIZE="10000"
-SAVEHIST="$HISTSIZE"
-HISTFILE="${HOME}/.history"
+SAVEHIST="${HISTSIZE}"
+HISTFILE="${XDG_DATA_HOME}/zsh/history"
 
 if [ "$EUID" -eq 0 ];then
 	PS1="%F{1}%B%n%b%f %d %B#%b "
