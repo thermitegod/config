@@ -108,7 +108,8 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar
 bar {
-	status_command i3status
+	#status_command i3status
+	status_command i3blocks
 }
 
 # user

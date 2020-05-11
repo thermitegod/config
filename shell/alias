@@ -2,7 +2,7 @@
 alias chgrp="chgrp -v --preserve-root"
 alias chmod="chmod -v --preserve-root"
 alias chown="chown -v --preserve-root"
-alias rm="rm -I --preserve-root"
+alias rm="rm -v -I --preserve-root"
 alias cp="cp -iva"
 alias mv="mv -iv"
 alias ln="ln -ivs"
@@ -29,7 +29,8 @@ alias gdb="gdb -nh -x ${XDG_CONFIG_HOME}/gdb/init"
 alias strip="strip -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag"
 
 #kernel
-alias kmake="make LD=ld.bfd" #fix vdso undef when using gold
+##fix vdso undef when using gold
+alias kmake="make CC=clang LD=ld.lld"
 alias mcc="kmake menuconfig"
 alias msc="kmake syncconfig"
 
@@ -45,6 +46,7 @@ alias calcurse="calcurse --directory ${XDG_CONFIG_HOME}/calcurse"
 alias pylint="pylint --disable C0301 --disable C0330 --disable W0511 --disable C0116 --disable C0103 --disable C0115 --disable C0114"
 alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/config"
 alias reset="tput reset"
+alias kill="/bin/kill"
 
 #information
 alias dmesg="dmesg --kernel --color=always"

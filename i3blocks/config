@@ -1,0 +1,19 @@
+#https://vivien.github.io/i3blocks
+
+# Global properties
+separator=true
+separator_block_width=15
+
+#[mpd]
+#command=mpc current
+#interval=10
+
+[weather]
+command=curl -Ss 'https://de.wttr.in/?0TQm' | cut -c 16- | head -2 | xargs echo
+interval=3600
+color=#A4C2F4
+
+[time]
+#command=date "+%A %B %d %I:%M:%S %p %Z %Y CE"
+command=date "+%A %B %d %I:%M:%S %p %Z %Y  "
+interval=1

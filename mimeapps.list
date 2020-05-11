@@ -15,6 +15,7 @@ application/x-7z-compressed=mcomix-usercreated-2.desktop;
 application/vnd.comicbook+zip=mcomix.desktop;
 text/plain=mpv-usercreated-0.desktop;
 inode/directory=spacefm-folder-handler.desktop;
+application/vnd.comicbook-rar=mcomix.desktop;
 
 [Added Associations]
 application/zip=mcomix.desktop;mcomix;mcomix-usercreated-0.desktop;
@@ -28,3 +29,4 @@ application/x-7z-compressed=mcomix-usercreated-2.desktop;
 application/vnd.comicbook+zip=mcomix.desktop;
 text/plain=mpv-usercreated-0.desktop;
 inode/directory=spacefm-folder-handler.desktop;
+application/vnd.comicbook-rar=mcomix.desktop;

@@ -10,9 +10,12 @@ defaultserverargs="-nolisten tcp"
 
 /usr/local/bin/clean-serverauth
 
-xset s off &
+#xset s off &
+
+#when idle turn screen off
 xset -dpms &
 
 exec i3
+#exec dbus-launch --exit-with-session i3
 #exec ck-launch-session dbus-launch --sh-syntax --exit-with-session i3
 
