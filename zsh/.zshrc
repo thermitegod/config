@@ -1,10 +1,10 @@
 emulate sh -c "source /etc/profile"
 emulate sh -c "source ${XDG_CONFIG_HOME}/shell/profile"
 emulate sh -c "source ${XDG_CONFIG_HOME}/shell/alias"
-source /usr/share/zsh/site-contrib/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 #zsh specific
 export REPORTTIME="2"
+export ZSH_AUTOSUGGEST_USE_ASYNC="1"
 
 # Completion System (man zshcompsys):
 zstyle ":completion:*" completer _ignored _approximate
@@ -44,7 +44,7 @@ setopt AUTO_LIST AUTO_NAME_DIRS AUTO_PARAM_SLASH COMPLETE_ALIASES GLOB_COMPLETE 
 #expan
 setopt EXTENDED_GLOB GLOB GLOB_DOTS MARK_DIRS NOMATCH NUMERIC_GLOB_SORT WARN_CREATE_GLOBAL
 #hist
-setopt APPEND_HISTORY HIST_ALLOW_CLOBBER HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS HIST_VERIFY
+setopt APPEND_HISTORY HIST_ALLOW_CLOBBER HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS HIST_VERIFY HIST_IGNORE_SPACE
 #i/o
 setopt CORRECT_ALL PATH_DIRS
 #job
@@ -55,12 +55,12 @@ bindkey -v
 autoload -Uz compinit promptinit
 compinit -d "${ZDOTDIR}/zcompdump"
 #compinit -D # -u -C
-promptinit
-prompt gentoo
+#promptinit
+#prompt gentoo
 
-HISTSIZE="10000"
-SAVEHIST="${HISTSIZE}"
-HISTFILE="${XDG_DATA_HOME}/zsh/history"
+export HISTSIZE="10000"
+export SAVEHIST="${HISTSIZE}"
+export HISTFILE="${XDG_DATA_HOME}/zsh/history"
 
 if [ "$EUID" -eq 0 ];then
 	PS1="%F{1}%B%n%b%f %d %B#%b "
@@ -68,15 +68,10 @@ else
 	PS1="%F{1}%B%n%b%f %d %B>%b "
 fi
 
-if [ -n "$SSH_CLIENT" ];then
-	if [ "$EUID" -eq 0 ];then
-		PS1="%F{1}%B%n@%M%b%f %d %B#%b "
-	else
-		PS1="%F{1}%B%n@%M%b%f %d %B>%b "
-	fi
-fi
-
 #functions
 spell(){ echo "$@"|aspell -a|sed '1d;$d'; }
 mkcd(){ mkdir -p "${1}";cd "${1}"; }
+eqsss(){ equery s "${1}";equery s --bytes "${1}"; }
+
+source /usr/share/zsh/site-contrib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

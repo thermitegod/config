@@ -1,6 +1,5 @@
 calcurse
 chrome
-chromium*
 filezilla
 flexget/*log
 flexget/*sqlite
@@ -8,6 +7,7 @@ git
 gnupg
 google*
 java
+JetBrains
 kernel
 lxc
 mpd/database

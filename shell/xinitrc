@@ -15,7 +15,7 @@ defaultserverargs="-nolisten tcp"
 #when idle turn screen off
 xset -dpms &
 
-exec i3
-#exec dbus-launch --exit-with-session i3
-#exec ck-launch-session dbus-launch --sh-syntax --exit-with-session i3
+#exec i3
+
+exec dbus-launch --exit-with-session i3
 

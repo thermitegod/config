@@ -25,7 +25,7 @@ alias ntpcheck="ntpctl -s all"
 #toolchain
 #alias make="nice -19 make -j$(($(nproc)+1)) -l$(($(nproc)+1)) CC=${CC} LD=${LD}"
 alias make="nice -19 make -j$(($(nproc)*2+1)) -l$(($(nproc)+1))"
-alias gdb="gdb -nh -x ${XDG_CONFIG_HOME}/gdb/init"
+alias gdb="gdb -q -nh -x ${XDG_CONFIG_HOME}/gdb/init"
 alias strip="strip -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag"
 
 #kernel
@@ -88,6 +88,7 @@ alias gca="git commit --amend"
 alias grl="git reflog"
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches"
 alias glgpg="git log --show-signature -1"
+alias git-gc="git -c gc.reflogExpire=0 -c gc.reflogExpireUnreachable=0 -c gc.rerereresolved=0 -c gc.rerereunresolved=0 -c gc.pruneExpire=now gc;git gc --aggressive"
 
 #gentoo
 alias emerge="PYTHONOPTIMIZE=0 emerge"
