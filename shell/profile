@@ -1,7 +1,6 @@
 #xdg
-export XDG_CACHE_HOME="/tmp/${USER}"
+export XDG_CACHE_HOME="/tmp/users/${USER}"
 export XDG_RUNTIME_DIR="/run"
-#export XDG_RUNTIME_DIR="/tmp/${USER}"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share:${HOME}/.local/share"
@@ -53,7 +52,11 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/config"
 export VDPAU_DRIVER="radeonsi"
 
 #tmux
-TMUX_TMPDIR="${XDG_RUNTIME_DIR}"
+export TMUX_TMPDIR="${XDG_RUNTIME_DIR}"
+
+#rust
+#export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+
 
 #ssh
 #export SSH_CONFIG="-F ${XDG_CONFIG_HOME}/ssh/config"
@@ -64,10 +67,9 @@ TMUX_TMPDIR="${XDG_RUNTIME_DIR}"
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java"
 
 #X
-#export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
 export XAUTHORITY="/tmp/Xauthority"
-#alias startx="startx ${XDG_CONFIG_HOME}/X11/xinitrc -- vt1"
-
+#export XINITRC="${XDG_CONFIG_HOME}/shell/xinitrc"
+#alias startx="startx ${XDG_CONFIG_HOME}/shell/xinitrc -- vt1"
 
 #LLVM_VER="10" #multislotting
 #LLVM_PATH="/usr/lib/llvm/${LLVM_VER}/bin"

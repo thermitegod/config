@@ -14,7 +14,7 @@ alias ports="netstat -tulanp"
 alias rss="newsboat"
 alias neomutt="neomutt -F ${XDG_CONFIG_HOME}/mutt/muttrc"
 alias weechat="weechat -d ${XDG_CONFIG_HOME}/weechat"
-alias flexget="flexget --logfile=/dev/null"
+alias flexget="flexget --logfile /dev/null"
 alias tb="nc termbin.com 9999"
 alias ntpcheck="ntpctl -s all"
 

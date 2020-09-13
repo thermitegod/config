@@ -39,10 +39,13 @@ series:
   - Muhyo to Rouji no Mahouritsu Soudan Jimusho:
       from_group:
         - horriblesubs
-  - Okarishimasu:
+  - Kanojo, Okarishimasu:
       from_group:
         - horriblesubs
   - Enen no Shouboutai:
+      from_group:
+        - horriblesubs
+  - Toaru Kagaku no Railgun T:
       from_group:
         - horriblesubs
 
