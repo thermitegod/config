@@ -2,20 +2,20 @@
 -- the currently played file. It does so by scanning the directory a file is
 -- located in when starting playback. It sorts the directory entries
 -- alphabetically, and adds entries before and after the current file to
--- the internal playlist. (It stops if the it would add an already existing
+-- the internal playlist. (It stops if it would add an already existing
 -- playlist entry at the same position - this makes it "stable".)
 -- Add at most 5000 * 2 files when starting a file (before + after).
 
 --[[
-To configure this script use file autoload.conf in director script-opts (the "script-opts"
+To configure this script use file autoload.conf in directory script-opts (the "script-opts"
 directory must be in the mpv configuration directory, typically ~/.config/mpv/).
 
 Example configuration would be:
 
-disabled=false
-images=false
-videos=true
-audio=true
+disabled=no
+images=no
+videos=yes
+audio=yes
 
 --]]
 
@@ -47,16 +47,21 @@ function SetUnion (a,b)
 end
 
 EXTENSIONS_VIDEO = Set {
-    'mkv', 'avi', 'mp4', 'ogv', 'webm', 'rmvb', 'flv', 'wmv', 'mpeg', 'mpg', 'm4v', '3gp', 'gif'
+    'mkv', 'avi', 'mp4', 'ogv', 'webm', 'rmvb', 'flv', 'wmv', 'mpeg', 'mpg', 'm4v', '3gp', 'gif', 'm3u8'
 }
 
 EXTENSIONS_AUDIO = Set {
     'mp3', 'wav', 'ogm', 'flac', 'm4a', 'wma', 'ogg', 'opus'
 }
 
+EXTENSIONS_IMAGES = Set {
+    'jpg', 'jpeg', 'png', 'tif', 'tiff', 'gif', 'webp', 'svg', 'bmp'
+}
+
 EXTENSIONS = Set {}
 if o.videos then EXTENSIONS = SetUnion(EXTENSIONS, EXTENSIONS_VIDEO) end
 if o.audio then EXTENSIONS = SetUnion(EXTENSIONS, EXTENSIONS_AUDIO) end
+-- if o.images then EXTENSIONS = SetUnion(EXTENSIONS, EXTENSIONS_IMAGES) end
 
 function add_files_at(index, files)
     index = index - 1

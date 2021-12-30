@@ -1,0 +1,9 @@
+# GIMP action-history
+
+(history-item "layers-new" 0)
+(history-item "file-open" 1)
+(history-item "file-quit" 1)
+(history-item "image-new" 0)
+(history-item "layers-delete" 1)
+
+# end of action-history

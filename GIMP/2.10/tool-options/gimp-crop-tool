@@ -1,8 +1,0 @@
-# GIMP gimp-crop-tool options
-
-(aspect-denominator 1080)
-(aspect-numerator 1920)
-(desired-fixed-size-height 0)
-(desired-fixed-size-width 0)
-
-# end of gimp-crop-tool options

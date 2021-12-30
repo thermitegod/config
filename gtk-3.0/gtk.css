@@ -1,0 +1,19 @@
+overshoot.top,
+overshoot.right,
+overshoot.bottom,
+overshoot.left {
+  background: none;
+  background-image: none;
+}
+
+.undershoot {
+  background: none;
+}
+
+.spacefm * {
+  font-family: Liberation Mono;
+  font-style: normal;
+  font-size: 9px;
+  font-weight: 400;
+}
+

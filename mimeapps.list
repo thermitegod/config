@@ -18,6 +18,7 @@ inode/directory=spacefm-folder-handler.desktop;
 application/vnd.comicbook-rar=mcomix.desktop;
 application/x-zstd-compressed-tar=xarchiver.desktop;
 audio/mpeg=mpv.desktop;
+application/x-tar=mcomix.desktop;
 
 [Added Associations]
 application/zip=mcomix.desktop;mcomix;mcomix-usercreated-0.desktop;
@@ -34,3 +35,4 @@ inode/directory=spacefm-folder-handler.desktop;
 application/vnd.comicbook-rar=mcomix.desktop;
 application/x-zstd-compressed-tar=xarchiver.desktop;
 audio/mpeg=mpv.desktop;
+application/x-tar=mcomix.desktop;

@@ -73,5 +73,5 @@ spell(){ echo "$@"|aspell -a|sed '1d;$d'; }
 mkcd(){ mkdir -p "${1}";cd "${1}"; }
 eqsss(){ equery s "${1}";equery s --bytes "${1}"; }
 
-source /usr/share/zsh/site-contrib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
 

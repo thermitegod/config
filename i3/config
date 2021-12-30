@@ -121,7 +121,7 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym --release Print exec --no-startup-id /usr/local/bin/snip
 bindsym --release $mod+Print exec --no-startup-id /usr/local/bin/snip-root
 bindsym $mod+Return exec terminator
-bindsym $mod+$alt+Return exec terminator --layout=tag4 --profile=tag4
+bindsym $mod+$alt+Return exec terminator --layout=tag4 --profile=default
 bindsym $mod+$alt+a exec --no-startup-id /usr/local/bin/mpv-link
 bindsym Pause exec --no-startup-id /usr/local/bin/desktop-pause -a
 bindsym $mod+F9 exec --no-startup-id mpc toggle
@@ -168,8 +168,11 @@ for_window [window_role="Prefrences"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [window_role="menu"] floating enable
 #for_window [window_role=""] floating enable
+
+# disable title bar
 for_window [class="^.*"] border pixel 0
 for_window [title="^.*"] border pixel 0
+
 popup_during_fullscreen smart
 
 #set Workspace

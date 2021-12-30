@@ -1,24 +1,25 @@
 #xdg
 export XDG_CACHE_HOME="/tmp/users/${USER}"
-export XDG_RUNTIME_DIR="/run"
+#export XDG_RUNTIME_DIR="/run"
+export XDG_RUNTIME_DIR="${XDG_CACHE_HOME}/runtime"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share:${HOME}/.local/share"
 
-export XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
-export XDG_DOWNLOAD_DIR="$HOME/downloads"
-export XDG_DOCUMENTS_DIR="$HOME/documents"
-export XDG_MUSIC_DIR="$HOME/media/music"
-export XDG_PICTURES_DIR="$HOME/images"
-export XDG_VIDEOS_DIR="$HOME/"
-export XDG_TEMPLATES_DIR="$HOME/"
-export XDG_PUBLICSHARE_DIR="$HOME/"
+export XDG_DESKTOP_DIR="${HOME}/.local/share/desktop"
+export XDG_DOWNLOAD_DIR="${HOME}/downloads"
+export XDG_DOCUMENTS_DIR="${HOME}/documents"
+export XDG_MUSIC_DIR="${HOME}/media/music"
+export XDG_PICTURES_DIR="${HOME}/images"
+export XDG_VIDEOS_DIR="${HOME}/"
+export XDG_TEMPLATES_DIR="${HOME}/"
+export XDG_PUBLICSHARE_DIR="${HOME}/"
 
 #shells
 #export BASHRC_CONFIG_DIR="${XDG_CONFIG_HOME}/bash"
 
 #path
-export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.local/share/cargo/bin"
 
 #gentoo
 export EIX_LIMIT="0"
@@ -51,12 +52,17 @@ export MPD_HOST="/run/mpd.socket"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/config"
 export VDPAU_DRIVER="radeonsi"
 
+#ipython
+export IPYTHONDIR="${XDG_CONFIG_DATA}/ipython"
+
 #tmux
 export TMUX_TMPDIR="${XDG_RUNTIME_DIR}"
 
 #rust
-#export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 
+#zstd
+export ZSTD_NBTHREADS="$(nproc)"
 
 #ssh
 #export SSH_CONFIG="-F ${XDG_CONFIG_HOME}/ssh/config"
@@ -64,14 +70,14 @@ export TMUX_TMPDIR="${XDG_RUNTIME_DIR}"
 #export SSH_KNOWN_HOSTS="-o UserKnownHostsFile=${XDG_CONFIG_HOME}/ssh/known_hosts"
 
 #java
-export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java"
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java -XX:-UsePerfData"
 
 #X
 export XAUTHORITY="/tmp/Xauthority"
 #export XINITRC="${XDG_CONFIG_HOME}/shell/xinitrc"
 #alias startx="startx ${XDG_CONFIG_HOME}/shell/xinitrc -- vt1"
 
-#LLVM_VER="10" #multislotting
+#LLVM_VER="13" #multislotting
 #LLVM_PATH="/usr/lib/llvm/${LLVM_VER}/bin"
 #export CC="${LLVM_PATH}/clang-${LLVM_VER}"
 #export CXX="${LLVM_PATH}/clang++-${LLVM_VER} -stdlib=libc++"

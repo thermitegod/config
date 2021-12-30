@@ -1,7 +1,0 @@
-# GIMP gimp-ellipse-select-tool options
-
-(aspect-denominator 100)
-(aspect-numerator 100)
-(fixed-rule-active yes)
-
-# end of gimp-ellipse-select-tool options

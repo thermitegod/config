@@ -12,3 +12,4 @@ printf "\nAfter: %s\n" "$(du -h "./.git" | tail -n1)"
 
 #End script
 exit $?
+

@@ -1,0 +1,133 @@
+[global_config]
+  focus = mouse
+  inactive_color_offset = 1.0
+  enabled_plugins = ,
+  suppress_multiple_term_dialog = True
+  always_split_with_profile = True
+  title_use_system_font = False
+  title_font = Liberation Mono 10
+[keybindings]
+[profiles]
+  [[default]]
+    background_color = "#1b1b1b"
+    cursor_blink = False
+    cursor_color = "#aaaaaa"
+    font = Liberation Mono 10
+    foreground_color = "#ffffff"
+    scrollbar_position = hidden
+    scrollback_lines = 10000
+    palette = "#000000:#dd2323:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    use_custom_command = True
+    custom_command = /bin/zsh
+    use_system_font = False
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1841:1193
+      maximised = False
+      fullscreen = False
+      size = 734, 428
+      title = /bin/dash
+      last_active_term = 69a30711-af7c-4e2e-bc87-7207437e9c57
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = default
+      uuid = 69a30711-af7c-4e2e-bc87-7207437e9c57
+  [[tag4]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:0
+      maximised = False
+      fullscreen = False
+      size = 3840, 2138
+      title = /bin/dash
+      last_active_term = efaae1bf-154c-4fbf-b759-b592612816ad
+      last_active_window = True
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 1066
+      ratio = 0.4997655883731833
+    [[[child2]]]
+      type = HPaned
+      parent = child1
+      order = 0
+      position = 1919
+      ratio = 0.5003911342894394
+    [[[child3]]]
+      type = HPaned
+      parent = child2
+      order = 0
+      position = 956
+      ratio = 0.4994775339602926
+    [[[terminal4]]]
+      type = Terminal
+      parent = child3
+      order = 0
+      profile = default
+      uuid = 69a30711-af7c-4e2e-bc87-7207437e9c57
+    [[[terminal5]]]
+      type = Terminal
+      parent = child3
+      order = 1
+      profile = default
+      uuid = efaae1bf-154c-4fbf-b759-b592612816ad
+    [[[terminal6]]]
+      type = Terminal
+      parent = child2
+      order = 1
+      profile = default
+      uuid = c3355386-570a-42b0-bd43-b9b0f9b4d836
+    [[[child7]]]
+      type = HPaned
+      parent = child1
+      order = 1
+      position = 1919
+      ratio = 0.5003911342894394
+    [[[child8]]]
+      type = HPaned
+      parent = child7
+      order = 0
+      position = 956
+      ratio = 0.4994775339602926
+    [[[terminal9]]]
+      type = Terminal
+      parent = child8
+      order = 0
+      profile = default
+      uuid = 4f11c047-28a1-4c96-9872-152eaa2a2a63
+    [[[terminal10]]]
+      type = Terminal
+      parent = child8
+      order = 1
+      profile = default
+      uuid = cb0cb7d4-c978-46b2-b194-a87df60bba6c
+    [[[child11]]]
+      type = HPaned
+      parent = child7
+      order = 1
+      position = 956
+      ratio = 0.500261643118786
+    [[[terminal12]]]
+      type = Terminal
+      parent = child11
+      order = 0
+      profile = default
+      uuid = 176fafa9-7e4d-45d7-8dee-1228476bb23a
+    [[[terminal13]]]
+      type = Terminal
+      parent = child11
+      order = 1
+      profile = default
+      uuid = e4477e62-1ea0-4e14-875f-d84abae97ebd
+[plugins]
