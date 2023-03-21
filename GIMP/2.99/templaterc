@@ -12,6 +12,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "A1 (300 ppi)"
     (width 7016)
@@ -23,6 +26,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "A2 (300 ppi)"
     (width 4960)
@@ -34,6 +40,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "A3 (300 ppi)"
     (width 3508)
@@ -45,6 +54,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "A4 (300 ppi)"
     (width 2480)
@@ -56,6 +68,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "A5 (300 ppi)"
     (width 1748)
@@ -67,6 +82,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "A6 (300 ppi)"
     (width 1240)
@@ -78,6 +96,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "A7 (300 ppi)"
     (width 874)
@@ -89,6 +110,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "B4 (300 ppi)"
     (width 2953)
@@ -100,6 +124,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "B5 (300 ppi)"
     (width 2079)
@@ -111,6 +138,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "B5-Japan (300 ppi)"
     (width 2150)
@@ -122,6 +152,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "US Letter (300 ppi)"
     (width 2550)
@@ -133,6 +166,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "US Legal (300 ppi)"
     (width 2550)
@@ -144,6 +180,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "88.9×50.8 US Business Card"
     (icon-name "gimp-business-card")
@@ -156,6 +195,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "85×55 Western Europe Business Card"
     (icon-name "gimp-business-card")
@@ -168,6 +210,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "90×50 Eastern Europe Business Card"
     (icon-name "gimp-business-card")
@@ -180,6 +225,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "90×55 Business Card (AU, IN etc.)"
     (icon-name "gimp-business-card")
@@ -192,6 +240,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "87×49 Vistaprint Business Card"
     (icon-name "gimp-business-card")
@@ -204,6 +255,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Toilet paper (US, 300 ppi)"
     (icon-name "gimp-toilet-paper")
@@ -216,6 +270,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "CD cover (300 ppi)"
     (icon-name "media-optical")
@@ -228,6 +285,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Web banner leaderboard 728x90"
     (icon-name "gimp-web")
@@ -240,6 +300,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Web banner large rectangle 336×280"
     (icon-name "gimp-web")
@@ -252,6 +315,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Web banner medium rectangle 300×250"
     (icon-name "gimp-web")
@@ -264,6 +330,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Web banner large mobile 320×100"
     (icon-name "gimp-web")
@@ -276,6 +345,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Web banner large skyscraper 300×600"
     (icon-name "gimp-web")
@@ -288,6 +360,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "1280×720 (HD 720p)"
     (icon-name "gimp-video")
@@ -300,6 +375,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "1920×1080 (Full HD 1080p)"
     (icon-name "gimp-video")
@@ -312,6 +390,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "3840x2160 (4K UHD)"
     (icon-name "gimp-video")
@@ -324,6 +405,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "4096×2160 (Digital Cinema Initiatives 4K)"
     (icon-name "gimp-video")
@@ -336,6 +420,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "1366×768 HD"
     (icon-name "gimp-display")
@@ -348,6 +435,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "1920×1200 WUXGA"
     (icon-name "gimp-display")
@@ -360,6 +450,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "2560x1600 WQXGA"
     (icon-name "gimp-display")
@@ -372,6 +465,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "3840×2160 4K UHD"
     (icon-name "gimp-display")
@@ -384,6 +480,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Apple iPhone 6/7"
     (icon-name "gimp-smartphone")
@@ -396,6 +495,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Apple iPhone 5"
     (icon-name "gimp-smartphone")
@@ -408,6 +510,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Apple iPad 3&4, Air"
     (icon-name "gimp-smartphone")
@@ -420,6 +525,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Samsung Galaxy S6"
     (icon-name "gimp-smartphone")
@@ -432,6 +540,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Samsung Galaxy S5"
     (icon-name "gimp-smartphone")
@@ -444,6 +555,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 (GimpTemplate "Samsung Galaxy Tab 2&3 10,1 inch"
     (icon-name "gimp-smartphone")
@@ -456,6 +570,9 @@
     (image-type rgb)
     (precision u8-non-linear)
     (color-profile NULL)
+    (simulation-profile NULL)
+    (simulation-bpc no)
+    (simulation-intent relative-colorimetric)
     (fill-type background))
 
 # end of templaterc

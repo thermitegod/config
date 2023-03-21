@@ -4,8 +4,8 @@
 " Copyright:	Copyright (c) 2004-2005 Ciaran McCreesh
 " Licence:	You may redistribute this under the same terms as Vim itself
 "
-" This sets up syntax highlighting for Gentoo ebuilds, eclasses, GLEPs and
-" Gentoo style ChangeLogs.
+" This sets up syntax highlighting for Gentoo ebuilds, eclasses, GLEPs, init.d /
+" conf.d / env.d / cron.d entries,  /etc/portage/ files and so on.
 "
 
 if &compatible || v:version < 603
@@ -18,33 +18,27 @@ au BufNewFile,BufRead *.e{build,class}
     \     set filetype=ebuild
 
 " GLEPs
-au BufNewFile,BufRead *.txt
-    \ if (getline(1) =~? "^GLEP: ") |
+au BufNewFile,BufRead *.txt,*.rst
+    \ if (getline(1) =~? "^GLEP: " || getline(2) =~? "^GLEP: ") |
     \     set filetype=glep |
-    \ endif
-
-" ChangeLogs
-au BufNewFile,BufRead ChangeLog*
-    \ if (getline(2) =~? "^# Copyright \\d\\+-\\d\\+ Gentoo Foundation") |
-    \     set filetype=gentoo-changelog |
     \ endif
 
 " /etc/init.d/ scripts
 au BufNewFile,BufRead /etc/init.d/*
-    \     set filetype=gentoo-init-d |
+    \     set filetype=gentoo-init-d.sh |
 
-au BufNewFile,BufRead /*/files/*
+au BufNewFile,BufRead *
     \ if (getline(1) =~? "#!/sbin/\\(runscript\\|openrc-run\\)") |
-    \     set filetype=gentoo-init-d |
+    \     set filetype=gentoo-init-d.sh |
     \ endif
 
 " /etc/conf.d/ scripts
 au BufNewFile,BufRead /etc/conf.d/*
-    \     set filetype=gentoo-conf-d
+    \     set filetype=gentoo-conf-d.sh
 
 " /etc/env.d/ scripts
 au BufNewFile,BufRead /etc/env.d/*
-    \     set filetype=gentoo-env-d
+    \     set filetype=gentoo-env-d.sh
 
 " /etc/cron.d/ scripts
 au BufNewFile,BufRead /etc/cron.d/*
@@ -59,16 +53,8 @@ au BufNewFile,BufRead {*/package.{accept_,}keywords,*/portage/package.{accept_,}
     \     set filetype=gentoo-package-keywords
 
 " package.use
-au BufNewFile,BufRead {*/package.use,*/portage/package.use/*}
+au BufNewFile,BufRead {*/package.use,*/portage/package.use/*,*/package.env,*/portage/package.env/*}
     \     set filetype=gentoo-package-use
-
-" package.use.mask
-au BufNewFile,BufRead package.use.mask
-    \     set filetype=gentoo-package-use
-
-" package.env
-au BufNewFile,BufRead {*/package.env,*/portage/package.env/*}
-    \     set filetype=gentoo-package-env
 
 " package.license
 au BufNewFile,BufRead {*/package.license,*/portage/package.license/*}
@@ -83,7 +69,7 @@ au BufNewFile,BufRead {*/thirdpartymirrors,*/portage/mirrors}
     \     set filetype=gentoo-mirrors
 
 " make.conf
-au BufNewFile,BufRead make.{conf,globals}
+au BufNewFile,BufRead {*/make.{conf,globals},*/portage/make.conf/*}
     \     set filetype=gentoo-make-conf
 
 " use.desc
@@ -93,6 +79,14 @@ au BufNewFile,BufRead use.{local.,}desc
 " metadata.xml
 au BufNewFile,BufRead metadata.xml
     \     set filetype=gentoo-metadata
+
+" repos.conf
+au BufNewFile,BufRead {*/portage/repos.conf,*/portage/repos.conf/*.conf}
+    \     set filetype=dosini
+
+" portage/env/*
+au BufNewFile,BufRead */portage/{env/*,bashrc}
+    \     set filetype=ebuild
 
 " guidexml
 au BufNewFile,BufRead *.xml

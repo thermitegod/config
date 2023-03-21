@@ -16,20 +16,6 @@ if exists("b:current_syntax")
     finish
 endif
 
-runtime syntax/gentoo-common.vim
-
-" Header
-syn region GentooPackageMaskComment start=/#/ end=/$/
-    \ contains=GentooPackageMaskEmail,GentooPackageMaskDate,GentooBug
-
-syn match  GentooPackageMaskEmail contained /<[a-zA-Z0-9\-\_]\+@[a-zA-Z0-9\-\_\.]\+>/
-syn match  GentooPackageMaskDate  contained /(\(\d\d\?\s\w\+\|\w\+\s\d\d\?\)\s\d\{4\})/
-
-syn match  GentooPackageMaskAtom /^[^ \t\n#]\+\S\+\/\S\+/
-
-hi def link GentooPackageMaskComment          Comment
-hi def link GentooPackageMaskEmail            Special
-hi def link GentooPackageMaskDate             Number
-hi def link GentooPackageMaskAtom             Identifier
+runtime syntax/gentoo-package-common.vim
 
 let b:current_syntax = "gentoo-package-mask"

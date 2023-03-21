@@ -95,21 +95,21 @@ bindsym $mod+$alt+r restart
 
 # resize window keyboard
 mode "resize" {
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        # exit resize
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    # exit resize
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 # Start i3bar
 bar {
-	#status_command i3status
-	status_command i3blocks
+    #status_command i3status
+    status_command i3blocks
 }
 
 # user
@@ -190,9 +190,13 @@ for_window [class="Virt-manager"] floating enable, move container to workspace 2
 #for_window [class=""], move container to workspace , workspace , focus
 
 # autostart
+
+#exec gentoo-pipewire-launcher
+
 #dont need to have workspace call in all, keeping anyway
 exec --no-startup-id i3-msg "workspace 02; exec spacefm"
 #exec --no-startup-id i3-msg "workspace 03; exec filezilla; exec terminator -e ncmpcpp"
-exec --no-startup-id i3-msg "workspace 03; exec terminator -e ncmpcpp; exec terminator -e calcurse --directory ~/.config/calcurse"
+#exec --no-startup-id i3-msg "workspace 03; exec terminator -e ncmpcpp; exec terminator -e calcurse --directory ~/.config/calcurse"
+exec --no-startup-id i3-msg "workspace 03; exec terminator"
 exec --no-startup-id i3-msg "workspace 04; exec terminator --layout=tag4 --profile=tag4"
 

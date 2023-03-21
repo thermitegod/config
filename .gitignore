@@ -1,6 +1,7 @@
 calcurse
 chrome
 czkawka
+dconf
 rcomix
 flexget/*sqlite
 git
@@ -21,6 +22,7 @@ spacefm
 
 Code
 vscode
+
 
 ssh
 startpage

@@ -1,9 +1,13 @@
-#ln -s /etc/gtk-2.0/gtkrc /home/brandon/.config/gtk-2.0/gtkrc-2.0
-
 gtk-theme-name="Adwaita-dark"
 gtk-icon-theme-name="Arc"
 gtk-font-name="Liberation Mono 10"
-gtk-cursor-theme-name="OpenZone_Ice_Slim"
-#gtk-cursor-theme-name="OpenZone_Black_Slim"
-gtk-recent-files-max-age=0
-gtk-print-preview-command="/usr/bin/evince"
+gtk-cursor-theme-size=0
+gtk-toolbar-style=GTK_TOOLBAR_BOTH
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-button-images=1
+gtk-menu-images=1
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=1
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintfull"

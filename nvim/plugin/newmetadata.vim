@@ -27,6 +27,8 @@ fun! <SID>MakeNewMetadata()
     else
         let l:category = substitute(l:filename,
                     \ "^.*/\\([^/]\\+\\)/[^/]\\+/metadata\\.xml", "\\1", "g")
+        let l:package = substitute(l:filename,
+                    \ "^.*/\\([^/]\\+\\)/metadata\\.xml", "\\1", "g")
         let l:iscatmetadata = 0
         let l:user = GentooGetUser()
         let l:email = matchstr(l:user, "\\(<\\)\\@<=[^>]\\+\\(>\\)\\@=")
@@ -38,7 +40,7 @@ fun! <SID>MakeNewMetadata()
     if l:iscatmetadata
         " {{{ content
         0 put ='<?xml version=\"1.0\" encoding=\"UTF-8\"?>'
-        put ='<!DOCTYPE catmetadata SYSTEM \"http://www.gentoo.org/dtd/metadata.dtd\">'
+        put ='<!DOCTYPE catmetadata SYSTEM \"https://www.gentoo.org/dtd/metadata.dtd\">'
         put ='<catmetadata>'
         put ='<longdescription lang=\"en\">'
         put ='</longdescription>'
@@ -59,8 +61,6 @@ fun! <SID>MakeNewMetadata()
             let l:project = "perl"
         elseif l:category ==# "dev-php"
             let l:project = "php-bugs"
-        elseif l:category ==# "dev-python"
-            let l:project = "python"
         elseif l:category ==# "dev-ruby"
             let l:project = "ruby"
         elseif l:category ==# "dev-tex"
@@ -72,7 +72,7 @@ fun! <SID>MakeNewMetadata()
 
         " {{{ content
         0 put ='<?xml version=\"1.0\" encoding=\"UTF-8\"?>'
-        put ='<!DOCTYPE pkgmetadata SYSTEM \"http://www.gentoo.org/dtd/metadata.dtd\">'
+        put ='<!DOCTYPE pkgmetadata SYSTEM \"https://www.gentoo.org/dtd/metadata.dtd\">'
         put ='<pkgmetadata>'
         if l:project != ""
             put ='<maintainer type=\"project\">'
@@ -85,8 +85,11 @@ fun! <SID>MakeNewMetadata()
             put ='<name>' . l:name . '</name>'
         endif
         put ='</maintainer>'
-        put ='<longdescription lang=\"en\">'
-        put ='</longdescription>'
+        if l:category ==# "dev-python"
+            put ='<upstream>'
+            put ='<remote-id type=\"pypi\">' . l:package . '</remote-id>'
+            put ='</upstream>'
+        endif
         put ='</pkgmetadata>'
         exec "normal gg=G"
         " }}}

@@ -16,23 +16,19 @@ if exists("b:current_syntax")
     finish
 endif
 
-runtime syntax/gentoo-common.vim
+runtime syntax/gentoo-package-common.vim
 
-syn region GentooPackageLicenseComment start=/#/ end=/$/
-    \ contains=GentooPackageLicenseEmail,GentooPackageLicenseDate,GentooBug
+syn match  GentooPackageLicenseLicense contained /\([a-zA-Z0-9\-_.+]\+\|\*\)/
+    \ nextgroup=@GentooPackagePostAtom skipwhite
+syn match  GentooPackageLicenseUnLicense contained /-\([a-zA-Z0-9\-_.+]\+\|\*\)/
+    \ nextgroup=@GentooPackagePostAtom skipwhite
+syn match  GentooPackageLicenseLicenseGroup contained /-\?@[a-zA-Z0-9\-_.+]\+/
+    \ nextgroup=@GentooPackagePostAtom skipwhite
+syn cluster GentooPackagePostAtom contains=GentooPackageLicenseLicense,
+    \ GentooPackageLicenseUnLicense,GentooPackageLicenseLicenseGroup
 
-syn match  GentooPackageLicenseEmail contained /<[a-zA-Z0-9\-\_]\+@[a-zA-Z0-9\-\_\.]\+>/
-syn match  GentooPackageLicenseDate  contained /(\(\d\d\?\s\w\+\|\w\+\s\d\d\?\)\s\d\{4\})/
-
-syn match  GentooPackageLicenseAtom /^[^ \t\n#]\+\S\+\/\S\+/
-    \ nextgroup=GentooPackageLicenseLicense skipwhite
-syn match  GentooPackageLicenseLicense contained /-\?@\?\([a-zA-Z0-9\-_.+]\+\|\*\)/
-    \ nextgroup=GentooPackageLicenseLicense skipwhite
-
-hi def link GentooPackageLicenseComment          Comment
-hi def link GentooPackageLicenseEmail            Special
-hi def link GentooPackageLicenseDate             Number
-hi def link GentooPackageLicenseAtom             Identifier
-hi def link GentooPackageLicenseLicense          Keyword
+hi def link GentooPackageLicenseLicense          Special
+hi def link GentooPackageLicenseUnLicense        Keyword
+hi def link GentooPackageLicenseLicenseGroup     Type
 
 let b:current_syntax = "gentoo-package-license"

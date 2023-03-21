@@ -116,10 +116,10 @@ alias eqw="equery w"
 alias etcat="equery l -o -p"
 
 #openrc
-alias rc-status="rc-status -a"
+#alias rc-status="rc-status -a"
 
 #on/off
-alias halt="sync && /sbin/halt"
-alias poweroff="sync && /sbin/poweroff"
-alias reboot="sync && /sbin/reboot"
+#alias halt="sync && /sbin/halt"
+#alias poweroff="sync && /sbin/poweroff"
+#alias reboot="sync && /sbin/reboot"
 

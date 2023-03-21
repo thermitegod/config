@@ -1,0 +1,129 @@
+# ln -s ~/.config/zsh/zshrc ~/.zshrc
+
+emulate sh -c "source /etc/profile"
+emulate sh -c "source ${HOME}/.config/shell/profile"
+emulate sh -c "source ${HOME}/.config/shell/alias"
+
+#zsh specific
+export REPORTTIME="2"
+export ZSH_AUTOSUGGEST_USE_ASYNC="1"
+
+# Completion System (man zshcompsys):
+zstyle ":completion:*" completer _ignored _approximate
+zstyle ":completion:*" completions 1
+zstyle ":completion:*" glob 1
+zstyle ":completion:*" list-colors ""
+zstyle ":completion:*" max-errors 5 numeric
+zstyle ":completion:*" substitute 1
+zstyle ":compinstall" filename "${XDG_CONFIG_HOME}/zsh/.zshrc"
+zstyle ":completion:*:descriptions" format "%U%B%d%b%u"
+zstyle ":completion:*:warnings" format "%BNo matches for: %d%b"
+zstyle ":completion:*" menu select
+zstyle ":completion::complete:*" use-cache 1
+zstyle ":completion:*:*:-command-:*:*" ignored-patterns "_*"
+
+# colors
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:*:*:processes' list-colors '=(#b) #([0-9]#) #([0-9a-z/-]# #[0-9:]# #)*=01;32=01;36=01;33'
+zstyle ':completion:*:*:*:*:hosts' list-colors '=*=00;36'
+zstyle ':completion:*:*:*:*:users' list-colors '=*=01;35'
+zstyle ':completion:*:*:*:*:modules' list-colors '=*=01;35'
+zstyle ':completion:*:*:*:*:interfaces' list-colors '=*=01;35'
+zstyle ':completion:*:*:*:*:packages' list-colors '=*=01;32'
+zstyle ':completion:*:*:*:*:categories' list-colors '=*=00;32'
+zstyle ':completion:*:*:*:*:useflags' list-colors '=*=01;35'
+zstyle ':completion:*:reserved-words' list-colors '=*=01;32'
+zstyle ':completion:*:aliases' list-colors '=*=01;32'
+zstyle ':completion:*:parameters' list-colors '=*=01;36'
+
+# Restrict cd selections:
+zstyle ':completion:*:cd:*' tag-order local-directories # directory-stack named-directories path-directories
+
+# zsh Options
+
+# Changing Directories
+setopt AUTO_CD
+# setopt CDABLE_VARS
+setopt CD_SILENT
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_MINUS
+setopt PUSHD_SILENT
+setopt PUSHD_TO_HOME
+
+# Completion
+setopt AUTO_LIST
+setopt AUTO_NAME_DIRS
+setopt AUTO_PARAM_SLASH
+setopt COMPLETE_ALIASES
+setopt GLOB_COMPLETE
+setopt LIST_AMBIGUOUS
+setopt LIST_PACKED
+setopt LIST_ROWS_FIRST
+setopt LIST_TYPES
+setopt MENU_COMPLETE
+
+# Expansion and Globbing
+setopt EXTENDED_GLOB
+setopt GLOB
+setopt GLOB_DOTS
+setopt MARK_DIRS
+setopt NOMATCH
+setopt NUMERIC_GLOB_SORT
+setopt WARN_CREATE_GLOBAL
+
+# History
+setopt APPEND_HISTORY
+setopt HIST_ALLOW_CLOBBER
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt HIST_IGNORE_SPACE
+
+# Input/Output
+setopt CORRECT_ALL
+setopt PATH_DIRS
+
+# Job Control
+setopt AUTO_CONTINUE
+setopt NOTIFY
+
+#####
+
+#bindkey -v
+
+autoload -Uz compinit promptinit
+compinit -d "${ZDOTDIR}/zcompdump"
+
+# zsh history
+export HISTSIZE="10000"
+export SAVEHIST="${HISTSIZE}"
+export HISTFILE="${XDG_DATA_HOME}/zsh/history"
+
+# PS1 for user/root
+if [ "$EUID" -eq 0 ];then
+    PS1="%F{1}%B%n%b%f %d %B#%b "
+else
+    PS1="%F{1}%B%n%b%f %d %B>%b "
+fi
+
+#functions
+mkcd(){ mkdir -p "${1}";cd "${1}"; }
+eqsss(){ equery s "${1}";equery s --bytes "${1}"; }
+
+# compiler
+LLVM_VER="16"
+LLVM_PATH="/usr/lib/llvm/${LLVM_VER}/bin"
+CC="${LLVM_PATH}/clang-${LLVM_VER}"
+#CXX="${LLVM_PATH}/clang++-${LLVM_VER} -stdlib=libc++"
+CXX="${LLVM_PATH}/clang++-${LLVM_VER}"
+CPP="${LLVM_PATH}/clang-cpp"
+AR="${LLVM_PATH}/llvm-ar"
+NM="${LLVM_PATH}/llvm-nm"
+RANLIB="${LLVM_PATH}/llvm-ranlib"
+LD="/usr/bin/ld.lld"    # LLVM
+
+
+source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
+

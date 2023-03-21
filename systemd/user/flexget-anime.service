@@ -1,0 +1,6 @@
+[Unit]
+Description=Run Flexget RSS Download Targets
+
+[Service]
+Type=oneshot
+ExecStart=/home/brandon/.local/bin/flexget --logfile /dev/null execute --tasks Anime --disable-tracking

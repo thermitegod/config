@@ -1,21 +1,23 @@
 #!/usr/bin/env sh
 
+# ln -s ~/.config/shell/xinitrc ~/.xinitrc
+
 if [ -d /etc/X11/xinit/xinitrc.d ];then
-	for f in /etc/X11/xinit/xinitrc.d/?*;do
-		[ -x "$f" ] && . "$f"
-	done
-	unset f
+    for f in /etc/X11/xinit/xinitrc.d/?*;do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
 fi
 
 defaultserverargs="-nolisten tcp"
 
 # cleans old serverauths
-/usr/local/bin/clean-serverauth
+#/usr/local/bin/clean-serverauth
 
 # start user dbus session
-if which dbus-launch >/dev/null && test -z "${DBUS_SESSION_BUS_ADDRESS}"; then
-	eval "$(dbus-launch --sh-syntax --exit-with-session)"
-fi
+#if which dbus-launch >/dev/null && test -z "${DBUS_SESSION_BUS_ADDRESS}"; then
+#    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+#fi
 
 # disables turning idle screen off
 #xset s off &
@@ -25,9 +27,9 @@ fi
 
 # pipewire sound system
 #/usr/bin/pipewire &
-/usr/bin/gentoo-pipewire-launcher &
+#/usr/bin/gentoo-pipewire-launcher &
 
-#exec dbus-launch --exit-with-session i3
-
+#start i3
 exec i3
+#exec dbus-launch --exit-with-session i3
 

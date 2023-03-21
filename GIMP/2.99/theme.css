@@ -5,11 +5,13 @@
  * gimp.css file instead (/home/brandon/.config/GIMP/2.99/gimp.css).
  */
 
-@import url("file:///usr/share/gimp/2.99/themes/System/gimp.css");
+@import url("file:///usr/share/gimp/2.99/themes/Default/gimp.css");
+@import url("file:///usr/share/gimp/2.99/themes/Default/gimp-dark.css");
 @import url("file:///etc/gimp/2.99/gimp.css");
 
 * { -gtk-icon-style: symbolic; }
 
 /* prefer-dark-theme */
+
 
 /* end of theme.css */

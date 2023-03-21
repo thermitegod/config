@@ -21,15 +21,14 @@ fun! <SID>MakeNewEbuild()
     let l:filename = expand("%:p")
     let l:category = substitute(l:filename,
                 \ "^.*/\\([^/]\\+\\)/[^/]\\+/[^/]\\+\\.ebuild", "\\1", "g")
+    let l:package = substitute(l:filename,
+                \ "^.*/\\([^/]\\+\\)/[^/]\\+\\.ebuild", "\\1", "g")
 
     " use empty keywords for live ebuilds
     if l:filename =~# "-9999\\+.ebuild\$"
         let l:keywords = ""
     else
         let l:keywords = "~" . l:arch
-        if l:arch ==# "amd64"
-            let l:keywords = l:keywords . " ~x86"
-        endif
     endif
 
     " }}}
@@ -44,9 +43,20 @@ fun! <SID>MakeNewEbuild()
         put ='# ' . GentooGetUser()
         put ='# @AUTHOR:'
         put ='# ' . GentooGetUser()
+        put ='# @SUPPORTED_EAPIS: 8'
         put ='# @BLURB: '
         put ='# @DESCRIPTION:'
         put =''
+        put ='case ${EAPI} in'
+        put ='	8) ;;'
+        put ='	*) die \"${ECLASS}: EAPI ${EAPI:-0} not supported\" ;;'
+        put ='esac'
+        put =''
+        let l:eclass_ident = substitute(toupper(l:eclass), "[^A-Z0-9]", "_", "g")
+        put ='if [[ ! ${_' . l:eclass_ident . '} ]]; then'
+        put ='_' . l:eclass_ident . '=1'
+        put =''
+        put ='fi'
         " }}}
 
         " {{{ go to the first thing to edit
@@ -56,9 +66,27 @@ fun! <SID>MakeNewEbuild()
         nohls
         " }}}
     else
-        put ='EAPI=6'
+        put ='EAPI=8'
         put =''
-        if l:category ==# "app-vim"
+        if l:category ==# "acct-group"
+            " {{{ acct-group special setup
+            put ='inherit acct-group'
+            put =''
+            put ='ACCT_GROUP_ID='
+            " }}}
+        elseif l:category ==# "acct-user"
+            " {{{ acct-user special setup
+            let l:username=substitute(expand("%:t:r"),
+                    \ "\\(.*\\)-[0-9]*.*", "\\1", "")
+            put ='inherit acct-user'
+            put =''
+            put ='DESCRIPTION=\"\"'
+            put ='ACCT_USER_ID='
+            put ='ACCT_USER_GROUPS=( ' . l:username . ' )'
+            put =''
+            put ='acct-user_add_deps'
+            " }}}
+        elseif l:category ==# "app-vim"
             " {{{ app-vim special setup
             put ='#VIM_PLUGIN_VIM_VERSION=\"7.0\"'
             put ='inherit vim-plugin'
@@ -67,7 +95,6 @@ fun! <SID>MakeNewEbuild()
             put ='HOMEPAGE=\"http://www.vim.org/scripts/script.php?script_id=\"'
             put ='LICENSE=\"\"'
             put ='KEYWORDS=\"' . l:keywords . '\"'
-            put ='IUSE=\"\"'
             put =''
             put ='VIM_PLUGIN_HELPFILES=\"\"'
             put ='VIM_PLUGIN_HELPTEXT=\"\"'
@@ -84,7 +111,6 @@ fun! <SID>MakeNewEbuild()
             put ='LICENSE=\"\"'
             put =''
             put ='KEYWORDS=\"' . l:keywords . '\"'
-            put ='IUSE=\"\"'
             put ='SLOT=\"0\"'
             put =''
             put ='# See apache-module.eclass for more information.'
@@ -94,37 +120,29 @@ fun! <SID>MakeNewEbuild()
             put ='need_apache2'
             " }}}
         elseif l:category ==# "dev-java"
-            " {{{ dev-java generation-2 default ant ebuild
-            put ='JAVA_PKG_IUSE=\"doc source\"'
+            " {{{ dev-java generation-2 default java-pkg-simple ebuild
+            put ='JAVA_PKG_IUSE=\"doc source test\"'
+            put ='MAVEN_ID=\"\"'
+            put ='MAVEN_PROVIDES=\"\"'
+            put ='JAVA_TESTING_FRAMEWORKS=\"junit-4\"'
             put =''
-            put ='inherit java-pkg-2 java-ant-2'
+            put ='inherit java-pkg-2 java-pkg-simple'
             put =''
             put ='DESCRIPTION=\"\"'
             put ='HOMEPAGE=\"\"'
-            put ='SRC_URI=\"${P}.zip\"'
+            put ='SRC_URI=\"\"'
+            put ='S=\"${WORKDIR}/${P}\"'
             put =''
             put ='LICENSE=\"\"'
             put ='SLOT=\"0\"'
             put ='KEYWORDS=\"' . l:keywords . '\"'
             put =''
-            put ='IUSE=\"\"'
+            put ='CP_DEPEND=\"\"'
             put =''
-            put ='COMMON_DEP=\"\"'
-            put =''
-            put ='RDEPEND=\">=virtual/jre-1.5'
-            put ='  ${COMMON_DEP}\"'
-            put ='DEPEND=\">=virtual/jdk-1.5'
-            put ='  app-arch/unzip'
-            put ='  ${COMMON_DEP}\"'
-            put =''
-            put ='EANT_BUILD_TARGET=\"\"'
-            put ='EANT_DOC_TARGET=\"\"'
-            put =''
-            put ='src_install() {'
-            put ='  java-pkg_dojar \"${PN}.jar\"'
-            put ='  use doc && java-pkg_dojavadoc build/javadoc'
-            put ='  use source && java-pkg_dosrc src'
-            put ='}'
+            put ='RDEPEND=\">=virtual/jre-1.8:*'
+            put ='	${CP_DEPEND}\"'
+            put ='DEPEND=\">=virtual/jdk-1.8:*'
+            put ='	${CP_DEPEND}\"'
         elseif l:category ==# "dev-perl" || l:category ==# "perl-core"
             " {{{ perl modules default setup
             put ='DIST_AUTHOR=\"\"'
@@ -135,7 +153,6 @@ fun! <SID>MakeNewEbuild()
             put ='#LICENSE=\"\|\| ( Artistic GPL-1+ )\"'
             put ='SLOT=\"0\"'
             put ='KEYWORDS=\"' . l:keywords . '\"'
-            put ='IUSE=\"\"'
             put =''
             put ='RDEPEND=\"\"'
             put ='DEPEND=\"${RDEPEND}\"'
@@ -144,35 +161,51 @@ fun! <SID>MakeNewEbuild()
             " {{{ standard default setup
             " {{{ extra inherits for some categories
             if l:category ==# "dev-python"
+                put ='DISTUTILS_USE_PEP517=setuptools'
                 put ='PYTHON_COMPAT=( ' . GentooGetPythonTargets() . ' )'
                 put ='inherit distutils-r1'
-                put =''
-            elseif l:category =~# "^xfce-"
-                put ='inherit xfconf'
                 put =''
             endif
             " }}}
 
             put ='DESCRIPTION=\"\"'
-            put ='HOMEPAGE=\"\"'
+
+            if l:category ==# "dev-python"
+                put ='HOMEPAGE=\"'
+                put ='	https://pypi.org/project/' . l:package . '/'
+                put ='\"'
+            else
+                put ='HOMEPAGE=\"\"'
+            endif
+
             put ='SRC_URI=\"\"'
             put =''
             put ='LICENSE=\"\"'
             put ='SLOT=\"0\"'
             put ='KEYWORDS=\"' . l:keywords . '\"'
-            put ='IUSE=\"\"'
             put =''
 
             " {{{ extra deps for some categories
-            put ='DEPEND=\"\"'
-            put ='RDEPEND=\"${DEPEND}\"'
+            if l:category ==# "dev-python"
+                put ='RDEPEND=\"\"'
+                put ='BDEPEND=\"'
+                put ='	test? ('
+                put ='	)'
+                put ='\"'
+                put =''
+                put ='distutils_enable_tests pytest'
+            else
+                put ='DEPEND=\"\"'
+                put ='RDEPEND=\"${DEPEND}\"'
+                put ='BDEPEND=\"\"'
+            endif
             " }}}
         endif
 
         " {{{ go to the first thing to edit
         0
-        /^\(DIST_AUTHOR\|DESCRIPTION\)=/
-        exec "normal 2f\""
+        /^\(ACCT_GROUP_ID\|DIST_AUTHOR\|DESCRIPTION\)=/
+        exec "normal f=ll"
         nohls
         " }}}
     endif

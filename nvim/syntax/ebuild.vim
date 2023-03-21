@@ -38,6 +38,7 @@ syn keyword EbuildCoreKeyword doinitd doconfd doenvd domo dodir ebegin eend
 syn keyword EbuildCoreKeyword newconfd newdoc newenvd newinitd newlib.a newlib.so
 syn keyword EbuildCoreKeyword hasv usev usex elog eapply eapply_user
 syn keyword EbuildCoreKeyword einstalldocs in_iuse get_libdir
+syn keyword EbuildCoreKeyword dostrip ver_cut ver_rs ver_test
 
 " Deprecated and banned functions
 syn keyword EbuildDeprecatedKeyword check_KV dohard dohtml prepall prepalldocs
@@ -78,9 +79,13 @@ syn keyword EbuildDeprecatedKeyword ebeep epause built_with_use
 " flag-o-matic
 syn keyword EbuildFlagoKeyword setup-allowed-flags filter-flags filter-lfs-flags append-lfs-flags
 syn keyword EbuildFlagoKeyword append-flags replace-flags replace-cpu-flags is-flag filter-mfpmath
-syn keyword EbuildFlagoKeyword strip-flags test_flag test_version_info strip-unsupported-flags get-flag
-syn keyword EbuildFlagoKeyword has_hardened has_pic has_pie has_ssp_all has_ssp has_m64 has_m32
-syn keyword EbuildFlagoKeyword replace-sparc64-flags append-ldflags filter-ldflags fstack-flags gcc2-flags
+syn keyword EbuildFlagoKeyword strip-flags test-flag test_version_info strip-unsupported-flags get-flag
+syn keyword EbuildFlagoKeyword replace-sparc64-flags append-ldflags filter-ldflags
+syn keyword EbuildFlagoKeyword append-cflags append-cppflags append-cxxflags append-fflags
+syn keyword EbuildFlagoKeyword is-flagq is-ldflagq is-ldflag test-flag-CC test-flag-CXX
+syn keyword EbuildFlagoKeyword test-flag-F77 test-flag-FC test-flags-CC test-flags-CXX
+syn keyword EbuildFlagoKeyword test-flags-F77 test-flags-FC test-flags append-libs
+syn keyword EbuildFlagoKeyword raw-ldflags no-as-needed
 
 " libtool
 syn keyword EbuildLibtoolKeyword elibtoolize uclibctoolize darwintoolize
@@ -178,13 +183,15 @@ syn keyword EbuildPythonKeyword python_optimize python_scriptinto python_doexe
 syn keyword EbuildPythonKeyword python_newexe python_doscript python_newscript
 syn keyword EbuildPythonKeyword python_moduleinto python_domodule python_doheader
 syn keyword EbuildPythonKeyword python_wrapper_setup python_is_python3 python_is_installed
-syn keyword EbuildPythonKeyword python_fix_shebang python_export_utf8_locale
+syn keyword EbuildPythonKeyword python_fix_shebang python_export_utf8_locale build_sphinx
+syn keyword EbuildPythonKeyword epytest eunittest
 
 " python-r1, python-single-r1 and python-any-r1
 syn keyword EbuildPythonKeyword python_gen_usedep python_gen_useflags python_gen_cond_dep
 syn keyword EbuildPythonKeyword python_gen_impl_dep python_copy_sources python_foreach_impl
 syn keyword EbuildPythonKeyword python_setup python_replicate_script python_gen_any_dep
 syn keyword EbuildPythonKeyword python-single-r1_pkg_setup python-any-r1_pkg_setup
+syn keyword EbuildPythonKeyword python_check_deps
 
 " deprecated functions
 syn keyword EbuildDeprecatedKeyword python_parallel_foreach_impl python_export_best
@@ -206,7 +213,12 @@ syn keyword EbuildDistutilsKeyword distutils-r1_python_prepare_all
 syn keyword EbuildDistutilsKeyword distutils-r1_python_compile
 syn keyword EbuildDistutilsKeyword distutils-r1_python_install
 syn keyword EbuildDistutilsKeyword distutils-r1_python_install_all
+syn keyword EbuildDistutilsKeyword sphinx_compile_all
 syn match EbuildDistutilsKeyword "esetup\.py"
+
+" distutils-r1 global helpers
+syn keyword EbuildDistutilsKeyword distutils_enable_tests
+syn keyword EbuildDistutilsKeyword distutils_enable_sphinx
 
 " distutils-r1 sub-phases
 syn keyword EbuildDistutilsFunction python_prepare python_prepare_all
@@ -247,7 +259,24 @@ syn keyword EbuildLinuxInfoKeyword set_arch_to_kernel set_arch_to_portage
 syn keyword EbuildUnpackerKeyword unpack_pdv unpack_makeself
 
 " user
-syn keyword EbuildUserKeyword egetent enewuser enewgroup
+syn keyword EbuildDeprecatedKeyword enewuser enewgroup
+syn keyword EbuildUserKeyword egetent
+
+" cmake
+syn keyword EbuildCMakeKeyword cmake_run_in cmake_comment_add_subdirectory cmake_use_find_package
+syn keyword EbuildCMakeKeyword cmake_build mycmakeargs MYCMAKEARGS
+syn keyword EbuildCMakeKeyword cmake_src_prepare cmake_src_configure cmake_src_compile
+syn keyword EbuildCMakeKeyword cmake_src_test cmake_src_install
+
+" tmpfiles
+syn keyword EbuildTmpfilesKeyword dotmpfiles newtmpfiles tmpfiles_process
+
+" udev
+syn keyword EbuildUdevKeyword get_udevdir udev_dorules udev_newrules udev_reload
+syn keyword EbuildDeprecatedKeyword udev_get_udevdir
+
+" check-reqs
+syn keyword EbuildCheckReqsKeyword check-reqs_pkg_setup check-reqs_pkg_pretend
 
 " EXPORT_FUNCTIONS
 syn match EbuildExportFunctions /EXPORT_FUNCTIONS/ skipwhite nextgroup=EbuildExportFunctionsFunc,EbuildExportFunctionsFuncE
@@ -255,10 +284,12 @@ syn match EbuildExportFunctionsFunc contained /\S\+\(\s\|$\)\@=/ skipwhite nextg
 syn match EbuildExportFunctionsFuncE contained /\S\+\(\s\|$\)\@=\(\${\S\+}\|pkg_pretend\|pkg_nofetch\|pkg_setup\|src_unpack\|src_prepare\|src_configure\|src_compile\|src_test\|src_install\|pkg_preinst\|pkg_postinst\|pkg_prerm\|pkg_postrm\|pkg_config\|pkg_info\)\@<!/ skipwhite nextgroup=EbuildExportFunctionsFunc,EbuildExportFunctionsFuncE
 
 " Eclass documentation
-syn match EclassDocumentation /@\(BLURB\|CODE\|DESCRIPTION\|ECLASS-VARIABLE\|ECLASS\|EXAMPLE\|FUNCTION\|MAINTAINER\|RETURN\|USAGE\|VARIABLE\):/ contained
+syn match   EclassDocumentationTag /@\(DEAD\|DEFAULT_UNSET\|INCLUDES_EPREFIX\|INTERNAL\|OUTPUT_VARIABLE\|PRE_INHERIT\|REQUIRED\|USER_VARIABLE\)$/ contained
+syn match   EclassDocumentationTagAndColon /@\(AUTHOR\|BLURB\|BUGREPORTS\|CODE\|DEPRECATED\|DESCRIPTION\|ECLASS_VARIABLE\|ECLASS\|EXAMPLE\|FUNCTION\|MAINTAINER\|PROVIDES\|RETURN\|SUBSECTION\|SUPPORTED_EAPIS\|USAGE\|VARIABLE\|VCSURL\):/ contained
+syn cluster EclassDocumentation contains=EclassDocumentationTag,EclassDocumentationTagAndColon
 " use shComment (sh.vim), make it compatible with other comment highlights
-syn match      shComment        "^\s*\zs#.*$"   contains=EclassDocumentation
-syn match      shComment        "\s\zs#.*$"     contains=EclassDocumentation
+syn match      shComment        "^\s*\zs#.*$"   contains=@EclassDocumentation
+syn match      shComment        "\s\zs#.*$"     contains=@EclassDocumentation
 
 " mistakes: misspelling
 syn keyword EbuildError LICENCE
@@ -299,6 +330,9 @@ syn match   EbuildErrorC /`which.*`\|$(which.*)/
 " Special homepage handling
 syn match EbuildHomePageError /^HOMEPAGE=.*\(\${[^}]*}\?\|\([^\\]\)\@<=\$[^{]\w*\).*$/
 
+" Too long descriptions
+syn match   EbuildErrorC /^DESCRIPTION=['"].\{81,\}['"]$/
+
 " clusters
 syn cluster EbuildThings contains=EbuildCoreKeyword,EbuildFunctions,EbuildInherit,EbuildEutilsKeyword
 syn cluster EbuildThings add=EbuildLibtoolKeyword,EbuildFixHeadTailsKeyword,EbuildWebappKeyword
@@ -313,10 +347,13 @@ syn cluster EbuildThings add=EbuildDependApacheKeyword,EbuildApacheModuleKeyword
 syn cluster EbuildThings add=EbuildVirtualXKeyword,EbuildGnome2Keyword,EbuildAutoKeyword
 syn cluster EbuildThings add=EbuildDeprecatedKeyword,EbuildUnpackerKeyword,EbuildUserKeyword
 syn cluster EbuildThings add=EbuildCDROMKeyword,EbuildLinuxInfoKeyword,EbuildDistutilsFunction
+syn cluster EbuildThings add=EbuildCMakeKeyword,EbuildCMakeFunction,EbuildTmpfilesKeyword
+syn cluster EbuildThings add=EbuildUdevKeyword,EbuildCheckReqsKeyword
 
 syn cluster shCommandSubList add=@EbuildThings
 syn cluster shCommentGroup add=GentooBug
-syn cluster shDblQuoteList add=EbuildErrorC
+syn cluster shDblQuoteList add=EbuildErrorC,GentooError
+syn cluster shExprList2 add=GentooError
 
 hi def link EbuildCoreKeyword                Keyword
 hi def link EbuildDeprecatedKeyword          Error
@@ -353,9 +390,14 @@ hi def link EbuildCDROMKeyword               Identifier
 hi def link EbuildLinuxInfoKeyword           Identifier
 hi def link EbuildUnpackerKeyword            Identifier
 hi def link EbuildUserKeyword                Identifier
+hi def link EbuildCMakeKeyword               Identifier
+hi def link EbuildTmpfilesKeyword            Identifier
+hi def link EbuildUdevKeyword                Identifier
+hi def link EbuildCheckReqsKeyword           Identifier
 hi def link EbuildDistutilsFunction          Special
 
-hi def link EclassDocumentation              Identifier
+hi def link EclassDocumentationTag           Identifier
+hi def link EclassDocumentationTagAndColon   Identifier
 
 hi def link EbuildHomePageError              Error
 hi def link EbuildError                      Error

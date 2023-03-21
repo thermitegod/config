@@ -16,23 +16,12 @@ if exists("b:current_syntax")
     finish
 endif
 
-runtime syntax/gentoo-common.vim
+runtime syntax/gentoo-package-common.vim
 
-syn region GentooPackagePropertiesComment start=/#/ end=/$/
-    \ contains=GentooPackagePropertiesEmail,GentooPackagePropertiesDate,GentooBug
-
-syn match  GentooPackagePropertiesEmail contained /<[a-zA-Z0-9\-\_]\+@[a-zA-Z0-9\-\_\.]\+>/
-syn match  GentooPackagePropertiesDate  contained /(\(\d\d\?\s\w\+\|\w\+\s\d\d\?\)\s\d\{4\})/
-
-syn match  GentooPackagePropertiesAtom /^[^ \t\n#]\+\S\+\/\S\+/
-    \ nextgroup=GentooPackagePropertiesProperty skipwhite
 syn match  GentooPackagePropertiesProperty contained /-\?\([a-zA-Z0-9\-_]\+\|\*\)/
     \ nextgroup=GentooPackagePropertiesProperty skipwhite
+syn cluster GentooPackagePostAtom contains=GentooPackagePropertiesProperty
 
-hi def link GentooPackagePropertiesComment          Comment
-hi def link GentooPackagePropertiesEmail            Special
-hi def link GentooPackagePropertiesDate             Number
-hi def link GentooPackagePropertiesAtom             Identifier
 hi def link GentooPackagePropertiesProperty         Keyword
 
 let b:current_syntax = "gentoo-package-properties"

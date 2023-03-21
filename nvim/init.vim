@@ -1,55 +1,21 @@
 "plugins
 call plug#begin('/home/brandon/.config/nvim/plugged')
 
-"git browser
-"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-"vim-script library
-Plug 'https://github.com/vim-scripts/L9'
-
-"file system explorer
-Plug 'https://github.com/scrooloose/nerdtree'
-
-"code completion
-"Plug 'https://github.com/Valloric/YouCompleteMe', { 'do': './install.py' }
-
 "status line
 Plug 'https://github.com/vim-airline/vim-airline'
-
-"tmux integration
-Plug 'https://github.com/christoomey/vim-tmux-navigator'
 
 "nested parens will be given different colors
 Plug 'https://github.com/kien/rainbow_parentheses.vim'
 
-"mass un/commenting
-Plug 'https://github.com/tpope/vim-commentary'
-
 "auto adds matching parens and square brackets etc
 Plug 'https://github.com/jiangmiao/auto-pairs'
-
-"change tags to other tag types, comps above
-Plug 'https://github.com/kris2k/vim-surround'
 
 "display whitespace
 Plug 'https://github.com/ntpeters/vim-better-whitespace'
 
-"text align
-Plug 'https://github.com/godlygeek/tabular'
-
-"syntax checking: incompat w/ ale
-Plug 'https://github.com/scrooloose/syntastic'
-
-"async syntax checking: incompat w/ syntastic -- breaks on #include, unusable
-"Plug 'https://github.com/w0rp/ale'
-
-"running multiple process asynchronously base on neomake
-Plug 'https://github.com/tracyone/neomake-multiprocess'
-
-"code formating
-Plug 'https://github.com/Chiel92/vim-autoformat'
-
 call plug#end()
+
+"plugins end
 
 let mapleader = ","
 let g:mapleader = ","
@@ -63,7 +29,7 @@ set encoding=utf8
 "fix mouse on >=0.2
 set mouse=a
 
-"fix insert mode cursor in >=terminator-1.91
+"fix insert mode cursor
 set guicursor=
 
 "swap ; :
@@ -125,11 +91,11 @@ colo default-mod
 "file type
 set ffs=unix,dos,mac
 
-"tabs
-set noexpandtab
-"set smarttab
-set shiftwidth=8
-set tabstop=8
+"spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
 
 "auto indent
 set ai
@@ -148,16 +114,6 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove<cr>
-
-"show over 80 col
-"highlight ColorColumn ctermbg=magenta
-"call matchadd('ColorColumn', '\%81v', 100)
-
-"reload nvim on config change
-"augroup ReloadInitVim
-"    autocmd!
-"    autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
-"augroup END
 
 "return to last edit position when opening files
 autocmd BufReadPost *
@@ -200,21 +156,6 @@ set nobackup
 set nowb
 set noswapfile
 
-" NERDTree start
-" autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<cr>
-let NERDTreeShowHidden=1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 "vim airline settings
 "let g:airline#extensions#tabline#enabled = 1
 "rainbow parens set to always be on
@@ -222,19 +163,4 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-"autoformat
-"let g:formatterpath = ['/usr/bin/astyle']
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
-
-"autocmd FileType c,cpp setlocal equalprg=clang-format
-
-"ALE
-"err on status line
-"let g:airline#extensions#ale#enabled = 1
-"let g:ale_c_gcc_autoinclude_source_dir = 1
-"let g:ale_c_clang_autoinclude_source_dir = 1
-" Enable completion where available.
-"let g:ale_completion_enabled = 1
 
