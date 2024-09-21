@@ -1,6 +1,11 @@
-#if status is-interactive
-#    # Commands to run in interactive sessions can go here
-#end
+# if status is-interactive
+#     # Commands to run in interactive sessions can go here
+# end
+
+set -gx LLVM_VER "19"
+
+# set PATH with only the real paths on usr-merged system, ignoring symlinks.
+set -gx PATH /usr/bin /usr/local/bin /usr/lib/llvm/$LLVM_VER/bin $HOME/.local/bin $HOME/.local/share/cargo/bin
 
 #####################
 ### Fish Settings ###
@@ -16,306 +21,444 @@ set fish_prompt_pwd_dir_length 0
 ### Variables ###
 #################
 
-#xdg
-set -x XDG_CACHE_HOME "/tmp/users/$USER"
-set -x XDG_RUNTIME_DIR "/run/user/$(id -u)"
-set -x XDG_DATA_HOME "$HOME/.local/share"
-set -x XDG_CONFIG_HOME "$HOME/.config"
-set -x XDG_DATA_DIRS "/usr/local/share:/usr/share:$HOME/.local/share"
+set -gx DEFAULT_COMPILER "clang"
+# set -gx DEFAULT_COMPILER "gcc"
 
-set -x XDG_DESKTOP_DIR "$HOME/.local/share/desktop"
-set -x XDG_DOWNLOAD_DIR "$HOME/downloads"
-set -x XDG_DOCUMENTS_DIR "$HOME/documents"
-set -x XDG_MUSIC_DIR "$HOME/media/music"
-set -x XDG_PICTURES_DIR "$HOME/images"
-set -x XDG_VIDEOS_DIR "$HOME/"
-set -x XDG_TEMPLATES_DIR "$HOME/"
-set -x XDG_PUBLICSHARE_DIR "$HOME/"
+# Compiler - from /etc/portage/make.conf
+if test $DEFAULT_COMPILER = "clang"
+    set -gx CC "/usr/lib/llvm/$LLVM_VER/bin/clang"
+    set -gx CXX "/usr/lib/llvm/$LLVM_VER/bin/clang++"
+    # set -gx CXX "/usr/lib/llvm/$LLVM_VER/bin/clang++ -stdlib=libc++"
+    set -gx LD "/usr/lib/llvm/$LLVM_VER/bin/ld.lld"
 
-#path
-set -x PATH "$PATH:$HOME/.local/bin:$HOME/.local/share/cargo/bin"
+    # LLVM-provided binutils
+    set -gx AR "/usr/lib/llvm/$LLVM_VER/bin/llvm-ar"
+    set -gx AS "/usr/lib/llvm/$LLVM_VER/bin/clang -c"
+    set -gx CPP "/usr/lib/llvm/$LLVM_VER/bin/clang-cpp"
+    set -gx NM "/usr/lib/llvm/$LLVM_VER/bin/llvm-nm"
+    set -gx STRIP "/usr/lib/llvm/$LLVM_VER/bin/llvm-strip"
+    set -gx RANLIB "/usr/lib/llvm/$LLVM_VER/bin/llvm-ranlib"
+    set -gx OBJCOPY "/usr/lib/llvm/$LLVM_VER/bin/llvm-objcopy"
+    set -gx STRINGS "/usr/lib/llvm/$LLVM_VER/bin/llvm-strings"
+    set -gx OBJDUMP "/usr/lib/llvm/$LLVM_VER/bin/llvm-objdump"
+    set -gx READELF "/usr/lib/llvm/$LLVM_VER/bin/llvm-readelf"
+    set -gx ADDR2LINE "/usr/lib/llvm/$LLVM_VER/bin/llvm-addr2line"
+else
+    set -gx CC "/usr/bin/gcc"
+    set -gx CXX "/usr/bin/g++"
+    set -gx LD "/usr/bin/ld.bfd"
 
-#gentoo
-set -x EIX_LIMIT "0"
+    # binutils
+    set -gx AR "/usr/bin/ar"
+    set -gx AS "/usr/bin/as"
+    set -gx CPP "/usr/bin/cpp"
+    set -gx NM "/usr/bin/nm"
+    set -gx STRIP "/usr/bin/strip"
+    set -gx RANLIB "/usr/bin/ranlib"
+    set -gx OBJCOPY "/usr/bin/objcopy"
+    set -gx STRINGS "/usr/bin/strings"
+    set -gx OBJDUMP "/usr/bin/objdump"
+    set -gx READELF "/usr/bin/readelf"
+    set -gx ADDR2LINE "/usr/bin/addr2line"
+end
 
-#gui
-set -x GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
-set -x QT_STYLE_OVERRIDE "adwaita-dark"
+# XDG
+set -gx XDG_CACHE_HOME "/tmp/users/$USER"
+set -gx XDG_RUNTIME_DIR "/run/user/$(id -u)"
+set -gx XDG_DATA_HOME "$HOME/.local/share"
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx XDG_DATA_DIRS "/usr/local/share:/usr/share:$HOME/.local/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"
 
-#gpg
-set -x GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
-set -x GPG_TTY "$(tty)"
+set -gx XDG_DESKTOP_DIR "$HOME/.local/share/desktop"
+set -gx XDG_DOWNLOAD_DIR "$HOME/downloads"
+set -gx XDG_DOCUMENTS_DIR "$HOME/documents"
+set -gx XDG_MUSIC_DIR "$HOME/music"
+set -gx XDG_PICTURES_DIR "$HOME/pictures"
+set -gx XDG_VIDEOS_DIR "$HOME/videos"
+set -gx XDG_TEMPLATES_DIR "$HOME/"
+set -gx XDG_PUBLICSHARE_DIR "$HOME/"
 
-#python
-set -x PYTHONOPTIMIZE "2"
-#set -x PYTHONOPTIMIZE "0"
-set -x PYTHONUTF8 "1"
+# GUI
+# set -gx GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
+set -gx QT_STYLE_OVERRIDE "adwaita-dark"
 
-#defaults
-set -x EDITOR "/usr/bin/nvim"
-set -x LESSHISTFILE "/dev/null"
-set -x LESS "-i -Q -S -Sm -F -R -M --shift 5"
-set -x MAILPATH "/var/spool/mail/$USER"
-set -x PAGER "/usr/bin/less"
-set -x USE_EDITOR "$EDITOR"
-set -x VISUAL "$EDITOR"
+# GPG
+set -gx GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
+set -gx GPG_TTY "$(tty)"
 
-#other
-set -x MPD_HOST "$XDG_RUNTIME_DIR/mpd.socket"
-set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/config"
-set -x VDPAU_DRIVER "radeonsi"
+# Python
+# set -gx PYTHONOPTIMIZE "2"
+set -gx PYTHONUTF8 "1"
 
-#tmux
-set -x TMUX_TMPDIR "$XDG_RUNTIME_DIR"
+# Defaults
+set -gx EDITOR "$(command -v nvim)"
+set -gx LESSHISTFILE "/dev/null"
+set -gx LESS "-i -Q -S -Sm -F -R -M --shift 5"
+set -gx MAILPATH "/var/spool/mail/$USER"
+set -gx PAGER "$(command -v less)"
+set -gx USE_EDITOR "$EDITOR"
+set -gx VISUAL "$EDITOR"
 
-#rust
-set -x CARGO_HOME "$XDG_DATA_HOME/cargo"
+# Other
+set -gx MPD_HOST "$XDG_RUNTIME_DIR/mpd.socket"
+set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/config"
+set -gx VDPAU_DRIVER "radeonsi"
 
-#zstd
-set -x ZSTD_NBTHREADS "$(nproc)"
+# tmux
+set -gx TMUX_TMPDIR "$XDG_RUNTIME_DIR"
 
+# rust
+set -gx RUSTFLAGS '-C target-cpu=native'
+set -gx CARGO_HOME "$XDG_DATA_HOME/cargo"
+
+# zstd
+set -gx ZSTD_NBTHREADS "$(nproc)"
+
+# timezone
+# https://blog.packagecloud.io/set-environment-variable-save-thousands-of-system-calls/
+# set -gx TZ ":/etc/timezone"
+set -gx TZ "America/Phoenix"
 
 #################
-###   Alias   ###
+### LS_COLORS ###
+#################
+
+# Copied from /etc/DIR_COLOR
+set -gx LS_COLORS '*.7z=01;31:*.ace=01;31:*.alz=01;31:*.apk=01;31:*.arc=01;31:*.arj=01;31:*.bz=01;31:*.bz2=01;31:*.cab=01;31:*.cpio=01;31:*.crate=01;31:*.deb=01;31:*.drpm=01;31:*.dwm=01;31:*.dz=01;31:*.ear=01;31:*.egg=01;31:*.esd=01;31:*.gz=01;31:*.jar=01;31:*.lha=01;31:*.lrz=01;31:*.lz=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.lzo=01;31:*.pyz=01;31:*.rar=01;31:*.rpm=01;31:*.rz=01;31:*.sar=01;31:*.swm=01;31:*.t7z=01;31:*.tar=01;31:*.taz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tgz=01;31:*.tlz=01;31:*.txz=01;31:*.tz=01;31:*.tzo=01;31:*.tzst=01;31:*.udeb=01;31:*.war=01;31:*.whl=01;31:*.wim=01;31:*.xz=01;31:*.z=01;31:*.zip=01;31:*.zoo=01;31:*.zst=01;31:*.avif=01;35:*.jpg=01;35:*.jxl=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.cfg=00;32:*.conf=00;32:*.diff=00;32:*.doc=00;32:*.ini=00;32:*.log=00;32:*.patch=00;32:*.pdf=00;32:*.ps=00;32:*.tex=00;32:*.txt=00;32:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90'
+
+#################
+###  Aliases  ###
 #################
 
 # file coreutils
-function chgrp
-    /usr/bin/chgrp -v --preserve-root $argv
-end
-function chmod
-    /usr/bin/chmod -v --preserve-root $argv
-end
-function chown
-    /usr/bin/chown -v --preserve-root $argv
-end
-function rm
-    /usr/bin/rm -v -I --preserve-root $argv
-end
-function cp
-    /usr/bin/cp -iva $argv
-end
-function mv
-    /usr/bin/mv -iv $argv
-end
-function ln
-    /usr/bin/ln -ivs $argv
-end
-function mkdir
-    /usr/bin/mkdir -pv $argv
+function chgrp \
+        --wraps chgrp
+    command chgrp -v --preserve-root $argv
 end
 
-#net
-function wget
-    /usr/bin/wget --hsts-file=/tmp/wget-hsts $argv
+function chmod \
+        --wraps chmod
+    command chmod -v --preserve-root $argv
 end
+
+function chown \
+        --wraps chown
+    command chown -v --preserve-root $argv
+end
+
+function rm \
+        --wraps rm
+    command rm -v -I --preserve-root $argv
+end
+
+function cp \
+        --wraps cp
+    command cp -iva $argv
+end
+
+function mv \
+        --wraps mv
+    command mv -iv $argv
+end
+
+function ln \
+        --wraps ln
+    command ln -ivs $argv
+end
+
+function mkdir \
+        --wraps mkdir
+    command mkdir -pv $argv
+end
+
+# net
+function wget \
+        --wraps wget
+    command wget --hsts-file=$XDG_CACHE_HOME/wget-hsts $argv
+end
+
 function ports
-    /usr/bin/netstat -tulanp
-end
-function weechat
-    /usr/bin/weechat -d $XDG_CONFIG_HOME/weechat $argv
-end
-function flexget
-    $HOME/.local/bin/flexgetflexget --logfile /dev/null $argv
+    command netstat -tulanp
 end
 
-#toolchain
-function make
-    # nice -19 make -j$(($(nproc)*2+1)) -l$(($(nproc)+1))
-    /usr/bin/nice -19 make -j $argv
+function weechat \
+        --wraps weechat
+    command weechat -d $XDG_CONFIG_HOME/weechat $argv
 end
 
-#kernel
-function kmake
-    /usr/bin/make CC=clang LD=ld.lld LLVM=1 LLVM_IAS=1 $argv
+# toolchain
+function make \
+        --wraps make
+    command nice -19 make -j(math (command nproc) x 2 + 2) -l(math (command nproc) + 1) $argv
 end
+
+function lldb \
+        --wraps lldb
+    command lldb --source $XDG_CONFIG_HOME/lldb/lldbinit $argv
+end
+
+# kernel
+function kmake \
+        --wraps make
+    # uses fish wrapper function
+    make CC=$CC LD=$LD LLVM=1 LLVM_IAS=1 $argv
+end
+
 function mcc
+    # uses fish wrapper function
     kmake menuconfig
 end
+
 function msc
+    # uses fish wrapper function
     kmake syncconfig
 end
 
-#misc
-function alsamixer
-    /usr/bin/alsamixer -c 1
-end
-function su
-    /usr/bin/doas /usr/bin/su
-end
-function tmux
-    /usr/bin/tmux -f $XDG_CONFIG_HOME/tmux/config
-end
-function clear
-    /usr/bin/tput clear
-end
-function reset
-    /usr/bin/tput reset
-end
-function mkcd
-    mkdir $argv
-    cd $argv
+# misc
+function su \
+        --wraps su
+    command doas su $argv
 end
 
-#information
-function dmesg
-    /usr/bin/dmesg --kernel --color=always
+function tmux \
+        --wraps tmux
+    command tmux -f $XDG_CONFIG_HOME/tmux/config $argv
 end
-function ls
-    /usr/bin/ls --all -v --color=auto --group-directories-first --classify --file-type $argv
+
+function mkcd \
+        --wraps mkdir
+    # uses fish wrapper function
+    mkdir $argv
+    command cd $argv
 end
-function ll
+
+# information
+function dmesg \
+        --wraps dmesg
+    command dmesg --kernel --color=always $argv
+end
+
+function ls \
+        --wraps ls
+    command ls --all -v --color=auto --group-directories-first --classify --file-type $argv
+end
+
+function ll \
+        --wraps ls
+    # uses 'ls' wrapper function
     ls -l --time-style=+"%Y-%m-%d %H:%M:%S" $argv
 end
-function df
-    /usr/bin/df -hTP $argv
+
+function df \
+        --wraps df
+    command df -hTP $argv
 end
-function du
-    /usr/bin/du -k --one-file-system --total $argv
+
+function du \
+        --wraps du
+    command du -k --one-file-system --total $argv
 end
-function mountt
-    /usr/bin/mount|/usr/bin/column -t
+
+function grep \
+        --wraps grep
+    command grep --color=auto --binary-files=without-match $argv
 end
-function grep
-    /usr/bin/grep -IHn --color=auto --ignore-case $argv
+
+function mime-type \
+        --wraps file
+    command file -b --mime-type $argv
 end
-function egrep
-    /usr/bin/grep -E $argv
+
+function mime-encode \
+        --wraps file
+    command file -b --mime-encoding $argv
 end
-function fgrep
-    /usr/bin/grep -F $argv
+
+function file-perm \
+        --wraps stat
+    command stat -c %a $argv
 end
-function pcregrep
-    /usr/bin/grep -P $argv
+
+function dir \
+        --wraps dir
+    command dir --almost-all --color=auto $argv
 end
-function gtop
-    /usr/bin/radeontop
-end
-function mime-type
-    /usr/bin/file -b --mime-type $argv
-end
-function mime-encode
-    /usr/bin/file -b --mime-encoding $argv
-end
-function file-perm
-    /usr/bin/stat -c %a $argv
-end
-function dir
-    /usr/bin/dir --almost-all --color=auto $argv
-end
+
 function we
-    /usr/bin/curl wttr.in/86005
+    command curl wttr.in/86005
 end
-function diff
-    /usr/bin/diff -Naur $argv
+
+function diff \
+        --wraps diff
+    command diff -Naur $argv
 end
-function cdiff
-    /usr/bin/colordiff $argv
-end
+
 function del
-    /usr/bin/printf 'COMMAND     PID       USER   FD   TYPE DEVICE  SIZE/OFF   NODE NAME\n'
-    /usr/bin/doas /usr/bin/lsof /| /usr/bin/grep -E --color=auto 'DEL|deleted'
+    printf 'COMMAND     PID       USER   FD   TYPE DEVICE  SIZE/OFF   NODE NAME\n'
+    command doas lsof / 2>/dev/null | command grep -E --color=auto 'DEL|deleted'
 end
+
 function delc
-    /usr/bin/doas /usr/bin/lsof /| /usr/bin/grep -E 'DEL|deleted' | /usr/bin/wc -l
-end
-function ncdu
-    /usr/bin/ncdu -x -rr $argv
-end
-function uname
-    /usr/bin/uname -a
+    command doas lsof / 2>/dev/null | command grep -E 'DEL|deleted' | command wc -l
 end
 
-#git
+function ncdu \
+        --wraps ncdu
+    command ncdu -x -rr $argv
+end
+
+function uname \
+        --wraps uname
+    command uname -a
+end
+
+# git
 function gaa
-    /usr/bin/git add .
-end
-function gcm
-    /usr/bin/git commit -m $argv
-end
-function gca
-    /usr/bin/git commit --amend
-end
-function grl
-    /usr/bin/git reflog
-end
-function glg
-    /usr/bin/git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches
-end
-function glgpg
-    /usr/bin/git log --show-signature -1
-end
-function git-gc
-    /usr/bin/git -c gc.reflogExpire=0 -c gc.reflogExpireUnreachable=0 -c gc.rerereresolved=0 -c gc.rerereunresolved=0 -c gc.pruneExpire=now gc
-    /usr/bin/git gc --aggressive
-end
-function ggg
-    /usr/bin/git commit --amend --reset-author --no-edit
-    /usr/bin/git rebase --continue
+    command git add .
 end
 
-#gentoo
-function emerge
-    PYTHONOPTIMIZE=0 /usr/bin/emerge $argv
+function gcm
+    command git commit -m $argv
 end
+
+function gca
+    command git commit --amend
+end
+
+function grl
+    command git reflog
+end
+
+function glg
+    command git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches
+end
+
+function glgpg
+    command git log --show-signature -1
+end
+
+function git-gc
+    command git -c gc.reflogExpire=0 -c gc.reflogExpireUnreachable=0 -c gc.rerereresolved=0 -c gc.rerereunresolved=0 -c gc.pruneExpire=now gc
+    command git gc --aggressive
+end
+
+function ggg
+    command git commit --amend --reset-author --no-edit
+    command git rebase --continue
+end
+
+# gentoo
+function emerge \
+        --wraps emerge
+    # Some packages break during build/install when this is not set to '0'
+    # set -f PYTHONOPTIMIZE 0
+
+    # unset custom toolchain, let portage set everything
+    set -f CC ""
+    set -f CXX ""
+    set -f LD ""
+    set -f AR ""
+    set -f AS ""
+    set -f CPP ""
+    set -f NM ""
+    set -f STRIP ""
+    set -f RANLIB ""
+    set -f OBJCOPY ""
+    set -f STRINGS ""
+    set -f OBJDUMP ""
+    set -f READELF ""
+    set -f ADDR2LINE ""
+
+    command emerge --ask --verbose --nospinner $argv
+end
+
 function update
-    /usr/bin/emerge --deep --verbose --changed-use --newuse --changed-deps=y --with-bdeps=y --jobs --update @world
+    # uses 'emerge' wrapper function
+    emerge --deep --changed-use --newuse --changed-deps=y --with-bdeps=y --jobs --update @world $argv
 end
+
 function emerge-check
-    /usr/bin/emerge --deep --verbose --changed-use --newuse --changed-deps=y --with-bdeps=y --jobs @world
+    # uses 'emerge' wrapper function
+    emerge --deep --changed-use --newuse --changed-deps=y --with-bdeps=y --jobs @world
 end
-function quickpkg
-    /usr/bin/quickpkg --include-config=y $argv
+
+function quickpkg \
+        --wraps quickpkg
+    command quickpkg --include-config=y $argv
 end
-function smart-live-rebuild
-    /usr/bin/smart-live-rebuild -f '!zfs' $argv
+
+function eix \
+        --wraps eix
+    set -l EIX_LIMIT "0"
+    command eix $argv
 end
+
+function smart-live-rebuild \
+        --wraps smart-live-rebuild
+    command smart-live-rebuild -f '!zfs' $argv
+end
+
 function eqf
-    /usr/bin/equery f $argv
+    command equery f $argv
 end
+
 function equ
-    /usr/bin/equery u -i $argv
+    command equery u -i $argv
 end
+
 function eqh
-    /usr/bin/equery h $argv
+    command equery h $argv
 end
+
 function eqa
-    /usr/bin/equery a --overlay-tree $argv
+    command equery a --overlay-tree $argv
 end
+
 function eqb
-    /usr/bin/equery b $argv
+    command equery b $argv
 end
+
 function eql
-    /usr/bin/equery l $argv
+    command equery l $argv
 end
+
 function eqd
-    /usr/bin/equery d $argv
+    command equery d $argv
 end
+
 function eqg
-    /usr/bin/equery g $argv
+    command equery g $argv
 end
+
 function eqk
-    /usr/bin/equery k $argv
+    command equery k $argv
 end
+
 function eqm
-    /usr/bin/equery m $argv
+    command equery m $argv
 end
+
 function eqy
-    /usr/bin/equery y $argv
+    command equery y $argv
 end
+
 function eqs
-    /usr/bin/equery s $argv
+    command equery s $argv
 end
+
 function eqss
-    /usr/bin/equery s --bytes $argv
+    command equery s --bytes $argv
 end
+
 function eqsss
     eqs $argv
     eqss $argv
 end
+
 function eqw
-    /usr/bin/equery w $argv
+    command equery w $argv
 end
+
 function etcat
-    /usr/bin/equery l -o -p $argv
+    command equery l -o -p $argv
 end

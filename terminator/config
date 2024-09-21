@@ -2,7 +2,6 @@
   focus = mouse
   inactive_color_offset = 1.0
   enabled_plugins = ,
-  suppress_multiple_term_dialog = True
   always_split_with_profile = True
 [keybindings]
 [profiles]

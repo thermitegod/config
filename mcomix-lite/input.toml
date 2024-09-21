@@ -1,0 +1,153 @@
+[Config]
+previous_page = [
+    "Up",
+    "Page_Up",
+    "KP_Page_Up",
+]
+next_page = [
+    "Down",
+    "Page_Down",
+    "KP_Next",
+]
+previous_page_singlestep = [
+    "<Primary>Up",
+    "<Primary>Page_Up",
+    "<Primary>KP_Page_Up",
+]
+next_page_singlestep = [
+    "<Primary>Down",
+    "<Primary>Page_Down",
+    "<Primary>KP_Next",
+]
+previous_page_ff = [
+    "<Shift>Page_Up",
+    "<Shift>KP_Page_Up",
+    "<Shift>BackSpace",
+    "<Shift><Alt>Left",
+]
+next_page_ff = [
+    "<Shift>Page_Down",
+    "<Shift>KP_Next",
+    "<Shift><Alt>Right",
+]
+first_page = [
+    "Home",
+    "KP_Home",
+]
+last_page = [
+    "End",
+    "KP_End",
+]
+go_to = [
+    "g",
+]
+next_archive = [
+    "<Primary>Right",
+]
+previous_archive = [
+    "<Primary>Left",
+]
+scroll_down = [
+    "Down",
+    "KP_Down",
+]
+scroll_left = [
+    "Left",
+    "KP_Left",
+]
+scroll_right = [
+    "Right",
+    "KP_Right",
+]
+scroll_up = [
+    "Up",
+    "KP_Up",
+]
+zoom_original = [
+    "<Primary>0",
+    "KP_0",
+]
+zoom_in = [
+    "plus",
+    "KP_Add",
+    "equal",
+]
+zoom_out = [
+    "minus",
+    "KP_Subtract",
+]
+keep_transformation = [
+    "k",
+]
+rotate_90 = [
+    "r",
+]
+rotate_180 = []
+rotate_270 = [
+    "<Shift>r",
+]
+double_page = [
+    "d",
+]
+manga_mode = [
+    "m",
+]
+stretch = [
+    "y",
+]
+best_fit_mode = [
+    "b",
+]
+fit_width_mode = [
+    "w",
+]
+fit_height_mode = [
+    "h",
+]
+fit_size_mode = [
+    "s",
+]
+fit_manual_mode = [
+    "a",
+]
+exit_fullscreen = [
+    "Escape",
+]
+fullscreen = [
+    "f",
+    "F11",
+]
+minimize = [
+    "n",
+]
+about = [
+    "F1",
+]
+close = [
+    "<Primary>w",
+]
+delete = [
+    "Delete",
+]
+extract_page = [
+    "<Primary><Shift>s",
+]
+move_file = [
+    "Insert",
+    "grave",
+]
+open = [
+    "<Primary>o",
+]
+preferences = [
+    "F12",
+]
+properties = [
+    "<Alt>Return",
+]
+quit = [
+    "<Primary>q",
+]
+refresh_archive = [
+    "<Primary><Shift>r",
+]

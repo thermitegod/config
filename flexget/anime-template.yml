@@ -1,4 +1,4 @@
-#how to setup anime.yml
+# how to setup anime.yml
 series:
   - show 1:
       from_group:

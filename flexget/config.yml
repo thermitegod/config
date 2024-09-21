@@ -1,33 +1,31 @@
-#to make sure edits are valid
-#$flexget check
+# to make sure any edits are valid run
+# flexget -c ~/.config/flexget/config.yml check
+
 schedules:
-  - tasks: 'Anime'
+  - tasks: '*'
     interval:
-      #minutes: 1
+      # minutes: 1
       hours: 1
 
 templates:
   global:
     torrent_scrub: rtorrent
-    domain_delay:
-      nyaa.si: 5 seconds
-      nyaa.pantsu.cat: 5 seconds
-      anidex.info: 5 seconds
-    verify_ssl_certificates: yes
+
+  anime:
+    include: anime.yml
+    # bind download location for docker container
+    download: /downloads
     content_filter:
       require:
         - '*.mkv'
-    no_entries_ok: yes
-
-#anime series list
-  anime-airing:
-    include: anime.yml
-    download: /mnt/cache/anime/watch
     regexp:
       reject:
-        #should block all non english
+        # erai v0
+        - v0
+        # low resolution
         - 480p
         - 720p
+        # should block all non english
         - \b(s|d)ub(s|bed|lado|titulado)?\b
         - \bhc\b
         - \bdual\b
@@ -41,14 +39,10 @@ templates:
     quality:
       - 1080p
 
-#tasks to run
 tasks:
   Anime:
-    priority: 10
-    template:
-      - anime-airing
-    inputs:
-    #  - rss: https://anidex.info/rss/?cat=1&lang_id=1
-      - rss: https://nyaa.si/?page=rss&cats=1_37&filter=2
-      - rss: https://nyaa.si/?page=rss&c=1_2&f=0
-    #  - rss: https://nyaa.pantsu.cat/feed?
+    priority: 1
+    rss: https://nyaa.si/?page=rss&c=1_2&f=0
+    template: anime
+    # verify_ssl_certificates: yes
+

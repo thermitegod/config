@@ -1,38 +1,6 @@
-[Default Applications]
-application/zip=mcomix.desktop;mcomix;mcomix-usercreated-0.desktop;
-application/vnd.rar=mcomix-usercreated-1.desktop;
-application/pdf=mcomix.desktop;
-image/png=qiv-usercreated-1.desktop;pqiv.desktop;
-image/jpeg=qiv-usercreated-0.desktop;
-application/octet-stream=xarchiver;
-text/html=google-chrome.desktop
-x-scheme-handler/http=google-chrome.desktop
-x-scheme-handler/https=google-chrome.desktop
-x-scheme-handler/about=google-chrome.desktop
-x-scheme-handler/unknown=google-chrome.desktop
-image/gif=mpv-usercreated-2.desktop;
-application/x-7z-compressed=mcomix-usercreated-2.desktop;
-application/vnd.comicbook+zip=mcomix.desktop;
-text/plain=mpv-usercreated-0.desktop;
-inode/directory=spacefm-folder-handler.desktop;
-application/vnd.comicbook-rar=mcomix.desktop;
-application/x-zstd-compressed-tar=xarchiver.desktop;
-audio/mpeg=mpv.desktop;
-application/x-tar=mcomix.desktop;
 
-[Added Associations]
-application/zip=mcomix.desktop;mcomix;mcomix-usercreated-0.desktop;
-application/vnd.rar=mcomix-usercreated-1.desktop;
-application/pdf=mcomix.desktop;
-image/png=qiv-usercreated-1.desktop;pqiv.desktop;
-image/jpeg=qiv-usercreated-0.desktop;
-application/octet-stream=xarchiver;
-image/gif=mpv-usercreated-2.desktop;
-application/x-7z-compressed=mcomix-usercreated-2.desktop;
-application/vnd.comicbook+zip=mcomix.desktop;
-text/plain=mpv-usercreated-0.desktop;
-inode/directory=spacefm-folder-handler.desktop;
-application/vnd.comicbook-rar=mcomix.desktop;
-application/x-zstd-compressed-tar=xarchiver.desktop;
-audio/mpeg=mpv.desktop;
-application/x-tar=mcomix.desktop;
+[Default Applications]
+image/gif=mpv.desktop
+image/webp=qimgv.desktop
+image/png=qimgv.desktop
+image/jpeg=qimgv.desktop

@@ -10,18 +10,10 @@ Plug 'https://github.com/kien/rainbow_parentheses.vim'
 "auto adds matching parens and square brackets etc
 Plug 'https://github.com/jiangmiao/auto-pairs'
 
-"display whitespace
-Plug 'https://github.com/ntpeters/vim-better-whitespace'
-
 call plug#end()
-
-"plugins end
 
 let mapleader = ","
 let g:mapleader = ","
-
-"fast saving
-nmap <leader>w :w!<cr>
 
 "set default encoding
 set encoding=utf8
@@ -50,12 +42,6 @@ set history=1000
 set autoread
 set nomodeline
 
-"use doas to save
-command W w !doas tee % > /dev/null
-
-"serch in subdirs
-set path+=**
-
 "show all maching in :find with tab comp
 set wildmenu
 
@@ -75,12 +61,6 @@ set magic
 "show matching {}
 set showmatch
 
-"no sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
 "syntax highlighting
 syntax enable
 
@@ -89,7 +69,7 @@ syntax enable
 colo default-mod
 
 "file type
-set ffs=unix,dos,mac
+set fileformats=unix
 
 "spaces
 set tabstop=4
@@ -106,21 +86,6 @@ set si
 "wrap lines
 set wrap
 
-"fix the delay when switching insert-->normal
-set timeoutlen=1000 ttimeoutlen=0
-
-"mappings for tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove<cr>
-
-"return to last edit position when opening files
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
-
 "remember info about open buffers on close
 set viminfo^=%
 
@@ -129,9 +94,6 @@ set laststatus=2
 
 "status kline format
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-
-"yml file formating
-au BufNewFile,BufRead *.yaml,*.yml set et ts=2 sw=2
 
 "del trailing whitespace
 "note: will change last edit location to
@@ -143,10 +105,6 @@ fun! <SID>deltailwhite()
     call cursor(l, c)
 endfun
 autocmd BufWritePre * :call <SID>deltailwhite()
-
-" wildmenu ignore compiled
-set wildignore=*.o,*~,*.pyc
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 "toggle spell checking
 map <leader>ss :setlocal spell!<cr>

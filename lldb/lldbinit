@@ -1,0 +1,4 @@
+settings set auto-confirm 1
+
+command script import /home/brandon/.config/lldb/lldbinit.py
+

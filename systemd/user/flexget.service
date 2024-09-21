@@ -1,0 +1,25 @@
+[Unit]
+Description=Flexget Docker Service
+# After=docker.service
+# Requires=docker.service
+
+[Service]
+# Environment=CONFIG=/home/brandon/.config/flexget
+# Environment=DOWNLOAD=/mnt/cache/anime/rtorrent/watch
+TimeoutStartSec=0
+Restart=always
+# # HACK, cannot depend on docker system services so wait a bit it to start
+# # ExecStartPre=/usr/bin/sleep 10
+# ExecStartPre=-/usr/bin/docker stop %n
+# ExecStartPre=-/usr/bin/docker rm %n
+# ExecStartPre=/usr/bin/docker pull ghcr.io/flexget/flexget:latest
+# ExecStart=/usr/bin/docker run -d --rm --name %n --user 1000:1000 -p 5050:5050 -v ${CONFIG}:/config -v ${DOWNLOAD}:/downloads ghcr.io/flexget/flexget daemon start --autoreload-config
+# ExecStop=-/usr/bin/docker stop %n
+# ExecReload=-/usr/bin/docker restart %n
+Environment=NAME=flexget
+ExecStart=/usr/bin/docker start ${NAME}
+ExecStop=-/usr/bin/docker stop ${NAME}
+ExecReload=-/usr/bin/docker restart ${NAME}
+
+[Install]
+WantedBy=default.target

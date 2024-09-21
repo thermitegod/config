@@ -4,29 +4,22 @@ czkawka
 dconf
 rcomix
 flexget/*sqlite
-git
-gnupg
-java
-JetBrains
-newsboat
+flexget/.config-lock
 nvim/autoload/plug.vim.old
 nvim/plugged/*
 pipewire-media-session/
 rtorrent/rpc.socket
 rtorrent/session/*
-
+pulse/
 spacefm
-#spacefm/.git
-#spacefm/new
-#spacefm/session
-
 Code
-vscode
+kritadisplayrc
+kritarc
 
-
+# Private
 ssh
+git
+gnupg
 startpage
-transmission
 weechat
-zim
-zsh/zcompdump
+
